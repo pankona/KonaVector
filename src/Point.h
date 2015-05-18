@@ -2,14 +2,18 @@
 #ifndef POINT_H
 #define POINT_H
 
-class KonaPoint {
+namespace Kona {
+
+class Point {
 
 private:
     int x;
     int y;
 
 public:
-    KonaPoint(int x, int y);
+    Point(int x, int y);
 };
+
+} // end of namespace
 
 #endif /* POINT_H */
