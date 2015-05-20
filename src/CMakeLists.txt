@@ -10,3 +10,6 @@ SET(soserial "1")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}")
 ADD_LIBRARY(konavector SHARED Vector.cpp)
 SET_TARGET_PROPERTIES(konavector PROPERTIES VERSION ${serial} SOVERSION ${soserial})
+
+ADD_EXECUTABLE(KonaVectorTest main.cpp)
+TARGET_LINK_LIBRARIES(KonaVectorTest LINK_PUBLIC konavector)
