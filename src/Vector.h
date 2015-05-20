@@ -9,12 +9,11 @@ namespace Kona {
 class Vector {
 
 private:
-    Point start;
-    Point end;
-    void copyPoint(Point src, Point* dst);
+    Point* start;
+    Point* end;
 
 public:
-    Vector(Point start, Point end);
+    Vector(Point* start, Point* end);
 };
 
 } // end of namespace
