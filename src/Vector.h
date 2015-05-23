@@ -14,6 +14,7 @@ private:
 
 public:
     Vector(Point* start, Point* end);
+    ~Vector();
 };
 
 } // end of namespace
