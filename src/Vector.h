@@ -9,11 +9,12 @@ namespace Kona {
 class Vector {
 
 private:
-    Point* start;
-    Point* end;
+    Point start;
+    Point end;
 
 public:
-    Vector(Point* start, Point* end);
+    Vector() : start(), end() {}
+    Vector(const Point& start, const Point& end);
     ~Vector();
 };
 

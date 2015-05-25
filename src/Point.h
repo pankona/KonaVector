@@ -19,6 +19,15 @@ public:
         this->x = x;
         this->y = y;
     };
+
+    Point&
+    operator= (const Point& in_p) {
+        if (this != &in_p) {
+            this->x = in_p.x;
+            this->y = in_p.y;
+        }
+        return *this;
+    }
 };
 
 } // end of namespace
