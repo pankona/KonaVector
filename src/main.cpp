@@ -17,4 +17,11 @@ int main () {
     Point start_point2(0, 0);
     Point end_point2(1, 1);
     Vector vector2(start_point2, end_point2);
+
+    vector1.show();
+    vector2.show();
+
+    Vector vector3;
+    vector3 = vector1 + vector2;
+    vector3.show();
 }
