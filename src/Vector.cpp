@@ -12,4 +12,9 @@ Vector::~Vector() {
     // nop
 }
 
-
+Vector&
+Vector::operator= (Vector& in_v) {
+    this->start = in_v.start;
+    this->end = in_v.end;
+    return *this;
+}
