@@ -17,6 +17,8 @@ public:
     Vector(const Point& start, const Point& end);
     ~Vector();
     Vector& operator=(Vector& in_v);
+    Vector& operator+(Vector& in_v);
+    void show();
 };
 
 } // end of namespace
