@@ -23,7 +23,6 @@ Vector::operator= (Vector& in_v) {
 
 Vector&
 Vector::operator+ (Vector& in_v) {
-    // TODO: implement correctly
     this->start.x += in_v.start.x;
     this->start.y += in_v.start.y;
     this->end.x   += in_v.end.x;
