@@ -14,10 +14,13 @@ private:
 
 public:
     Vector() : start(), end() {}
-    Vector(const Point& start, const Point& end);
+    Vector(const Point& in_start, const Point& in_end);
+    Vector(int in_length, int in_angle);
     ~Vector();
     Vector& operator=(Vector& in_v);
     Vector& operator+(Vector& in_v);
+    int getLength();
+    int getAngle();
     void show();
 };
 
