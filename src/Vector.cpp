@@ -1,13 +1,23 @@
 
 #include "Vector.h"
 #include <iostream>
+#include <cmath>
 
 using namespace Kona;
 using namespace std;
 
-Vector::Vector (const Point& in_start, const Point& in_end) {
-    start = in_start;
-    end = in_end;
+#define rad2deg(a) ((a) / 180.0 * M_PI)
+
+Vector::Vector (const Point& in_terminal) {
+    terminal = in_terminal;
+}
+
+Vector::Vector (const int in_length, const int in_angle) {
+    float fx = cos (rad2deg(in_angle)) * in_length;
+    float fy = sin (rad2deg(in_angle)) * in_length;
+
+    terminal.x = (int) fx;
+    terminal.y = (int) fy;
 }
 
 Vector::~Vector() {
@@ -16,25 +26,43 @@ Vector::~Vector() {
 
 Vector&
 Vector::operator= (Vector& in_v) {
-    this->start = in_v.start;
-    this->end = in_v.end;
+    this->terminal = in_v.terminal;
     return *this;
 }
 
 Vector&
 Vector::operator+ (Vector& in_v) {
-    this->start.x += in_v.start.x;
-    this->start.y += in_v.start.y;
-    this->end.x   += in_v.end.x;
-    this->end.y   += in_v.end.y;
+    this->terminal.x += in_v.terminal.x;
+    this->terminal.y += in_v.terminal.y;
     return *this;
+}
+
+int
+Vector::getAngle() {
+    double radian = std::atan2(terminal.y, terminal.x);
+    int angle = (int) (radian * 180 / M_PI);
+    return (int) angle;
+}
+
+int
+Vector::getLength() {
+    return (int) std::sqrt(terminal.x * terminal.x +
+                           terminal.y * terminal.y);
 }
 
 void
 Vector::show () {
-    cout << "(" << this->start.x << ", " << this->start.y << "), " 
-         << "(" << this->end.x   << ", " << this->end.y   << ")" 
-         << endl;
+         cout << "("
+              << this->terminal.x
+              << ", "
+              << this->terminal.y
+              << ")"
+              << endl;
+}
+
+Point&
+Vector::getTerminal() {
+    return terminal;
 }
 
 
