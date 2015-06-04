@@ -61,6 +61,11 @@ Vector::setLength(int in_length) {
 
 void
 Vector::setAngle(int in_angle) {
+    int current_length;
+
+    current_length = this->getLength();
+    Vector new_vector(current_length, in_angle);
+    *this = new_vector;
 }
 
 void
