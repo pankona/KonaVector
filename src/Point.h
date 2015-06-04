@@ -28,6 +28,17 @@ public:
         }
         return *this;
     }
+
+    bool
+    operator== (const Point& in_p) {
+       return this->x == in_p.x && this->y == in_p.y;
+    }
+
+    bool
+    operator!= (const Point& in_p) {
+       return this->x != in_p.x || this->y != in_p.y;
+    }
+
 };
 
 } // end of namespace
