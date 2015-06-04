@@ -51,6 +51,10 @@ int main () {
     ASSERT(vector7.getAngle() == 0);
     ASSERT(vector7.getLength() == 2);
 
+    vector7.setLength(3);
+    ASSERT(vector7.getAngle() == 0);
+    ASSERT(vector7.getLength() == 3);
+
     return 0;
 
 }

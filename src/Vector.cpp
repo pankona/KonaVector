@@ -38,16 +38,29 @@ Vector::operator+ (Vector& in_v) {
 }
 
 int
+Vector::getLength() {
+    return (int) std::sqrt(terminal.x * terminal.x +
+                           terminal.y * terminal.y);
+}
+
+int
 Vector::getAngle() {
     double radian = std::atan2(terminal.y, terminal.x);
     int angle = (int) (radian * 180 / M_PI);
     return (int) angle;
 }
 
-int
-Vector::getLength() {
-    return (int) std::sqrt(terminal.x * terminal.x +
-                           terminal.y * terminal.y);
+void
+Vector::setLength(int in_length) {
+    int current_angle;
+
+    current_angle = this->getAngle();
+    Vector new_vector(in_length, current_angle);
+    *this = new_vector;
+}
+
+void
+Vector::setAngle(int in_angle) {
 }
 
 void

@@ -20,6 +20,8 @@ public:
     Vector& operator+(Vector& in_v);
     int getLength();
     int getAngle();
+    void setLength(int in_length);
+    void setAngle(int in_angle);
     void show();
     Point& getTerminal();
 };
