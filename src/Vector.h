@@ -19,6 +19,8 @@ public:
     Vector& operator=(const Vector& in_v);
     Vector operator+(const Vector& in_v);
     Vector& operator+=(const Vector& in_v);
+    bool operator==(Vector& in_v);
+    bool operator!=(Vector& in_v);
     int getLength();
     int getAngle();
     void setLength(int in_length);

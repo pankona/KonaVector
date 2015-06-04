@@ -76,6 +76,15 @@ int main () {
     ASSERT(vector8.getAngle() == 45);
     ASSERT(vector8.getLength() == (int) std::sqrt(1 + 1));
 
-    return 0;
+    ASSERT(vector9.getAngle() == 90);
+    ASSERT(vector9.getLength() == 1);
 
+    ASSERT(vector8 == vector10)
+    ASSERT(vector9 != vector10)
+    vector8 = vector9;
+    ASSERT(vector8 == vector9)
+    ASSERT(vector8.getAngle() == 90);
+    ASSERT(vector8.getLength() == 1);
+
+    return 0;
 }

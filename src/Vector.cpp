@@ -45,6 +45,16 @@ Vector::operator+= (const Vector& in_v) {
     return *this;
 }
 
+bool
+Vector::operator== (Vector& in_v) {
+    return this->getTerminal() == in_v.getTerminal();
+}
+
+bool
+Vector::operator!= (Vector& in_v) {
+    return this->getTerminal() != in_v.getTerminal();
+}
+
 int
 Vector::getLength() {
     return (int) std::sqrt(terminal.x * terminal.x +
