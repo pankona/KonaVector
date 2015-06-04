@@ -25,13 +25,16 @@ int main () {
     Vector vector1(terminal1);
     ASSERT(vector1.getAngle() == 45);
     ASSERT(vector1.getLength() == (int)std::sqrt(1));
-    
 
     Point terminal2(1, 1);
     Vector vector2(terminal2);
 
     Vector vector3;
     vector3 = vector1 + vector2;
+    ASSERT(vector1.getAngle() == 45);
+    ASSERT(vector1.getLength() == (int)std::sqrt(1));
+    ASSERT(vector2.getAngle() == 45);
+    ASSERT(vector2.getLength() == (int)std::sqrt(1));
     ASSERT(vector3.getAngle() == 45);
     ASSERT(vector3.getLength() == (int)std::sqrt(4 + 4));
 
@@ -68,6 +71,10 @@ int main () {
     Vector vector10 = vector8 + vector9;
     ASSERT(vector10.getAngle() == 45);
     ASSERT(vector10.getLength() == (int) std::sqrt(1 + 1));
+
+    vector8 += vector9;
+    ASSERT(vector8.getAngle() == 45);
+    ASSERT(vector8.getLength() == (int) std::sqrt(1 + 1));
 
     return 0;
 

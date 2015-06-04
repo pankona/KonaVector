@@ -25,13 +25,21 @@ Vector::~Vector() {
 }
 
 Vector&
-Vector::operator= (Vector& in_v) {
+Vector::operator= (const Vector& in_v) {
     this->terminal = in_v.terminal;
     return *this;
 }
 
+Vector
+Vector::operator+ (const Vector& in_v) {
+    Vector new_vector;
+    new_vector.getTerminal().x = this->terminal.x + in_v.terminal.x;
+    new_vector.getTerminal().y = this->terminal.y + in_v.terminal.y;
+    return new_vector;
+}
+
 Vector&
-Vector::operator+ (Vector& in_v) {
+Vector::operator+= (const Vector& in_v) {
     this->terminal.x += in_v.terminal.x;
     this->terminal.y += in_v.terminal.y;
     return *this;
