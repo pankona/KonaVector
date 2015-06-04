@@ -51,6 +51,24 @@ int main () {
     ASSERT(vector7.getAngle() == 0);
     ASSERT(vector7.getLength() == 2);
 
+    vector7.setLength (3);
+    ASSERT(vector7.getAngle() == 0);
+    ASSERT(vector7.getLength() == 3);
+
+    vector7.setAngle (90);
+    ASSERT(vector7.getAngle() == 90);
+    ASSERT(vector7.getLength() == 3);
+
+    vector7.setAngle (180);
+    ASSERT(vector7.getAngle() == 180);
+    ASSERT(vector7.getLength() == 3);
+
+    Vector vector8 (Point(1, 0));
+    Vector vector9 (Point(0, 1));
+    Vector vector10 = vector8 + vector9;
+    ASSERT(vector10.getAngle() == 45);
+    ASSERT(vector10.getLength() == (int) std::sqrt(1 + 1));
+
     return 0;
 
 }
