@@ -11,10 +11,10 @@ using namespace std;
 #define ASSERT(x)                                \
         cout << "[" << __func__ << "]"           \
              << "[" << __LINE__ << "] ";         \
-        if (!(x)) {                              \
-            cout << "Assertion failed!" << endl; \
+        if ((x)) {                              \
+            cout << "." << endl; \
         } else {                                 \
-            cout << "Assertion passed!" << endl; \
+            cout << "Assertion failed!" << endl; \
         }
 
 
