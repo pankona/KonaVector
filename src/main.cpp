@@ -1,6 +1,5 @@
 
-
-#include "Vector.h"
+#include "KonaVector.h"
 
 #include <iostream>
 #include <cmath>

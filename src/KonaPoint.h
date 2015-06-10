@@ -1,6 +1,6 @@
 
-#ifndef POINT_H
-#define POINT_H
+#ifndef KONAPOINT_H
+#define KONAPOINT_H
 
 namespace Kona {
 
@@ -43,4 +43,4 @@ public:
 
 } // end of namespace
 
-#endif /* POINT_H */
+#endif /* KONAPOINT_H */
