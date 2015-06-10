@@ -1,8 +1,8 @@
 
-#ifndef VECTOR_H
-#define VECTOR_H
+#ifndef KONAVECTOR_H
+#define KONAVECTOR_H
 
-#include "Point.h"
+#include "KonaPoint.h"
 
 namespace Kona {
 
@@ -31,4 +31,4 @@ public:
 
 } // end of namespace
 
-#endif /* VECTOR_H */
+#endif /* KONAVECTOR_H */
