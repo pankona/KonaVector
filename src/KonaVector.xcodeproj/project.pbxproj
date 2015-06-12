@@ -1,0 +1,897 @@
+// !$*UTF8*$!
+{
+       archiveVersion = 1;
+       classes = {
+       };
+       objectVersion = 46;
+       objects = {
+
+/* Begin PBXAggregateTarget section */
+              864C355F6B4E4F689075BB65 /* ALL_BUILD */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = FD3B5A7626BD47E7A801C544 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+                     buildPhases = (
+                            A33424010CE94B448EE70137 /* CMake Rules */,
+                     );
+                     dependencies = (
+                            A101432395EC4BCD871D71EB /* PBXTargetDependency */,
+                            89A6A4CC935C4FB7A777B9C9 /* PBXTargetDependency */,
+                            DEA0215E80964020AC335ECD /* PBXTargetDependency */,
+                     );
+                     name = ALL_BUILD;
+                     productName = ALL_BUILD;
+              };
+              9BD698F9C7CA47B7ADB91507 /* ZERO_CHECK */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = 349C08B4FC06424389C6E4EB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+                     buildPhases = (
+                            7F8467B4984A43008405FD17 /* CMake Rules */,
+                     );
+                     dependencies = (
+                     );
+                     name = ZERO_CHECK;
+                     productName = ZERO_CHECK;
+              };
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+4D4912CC4CA9482995EC4676 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 144466FE0F66411DA5AED374 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */; settings = { COMPILER_FLAGS = ""; }; };
+4DF5AD155D264B7E93152BDF /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/main.cpp */ = {isa = PBXBuildFile; fileRef = A30B96FC414D4388A3ACD1C7 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/main.cpp */; settings = { COMPILER_FLAGS = ""; }; };
+595EE2F2F563405E838D5E70 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 48B590293DB7434086EB5719 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */; settings = { COMPILER_FLAGS = ""; }; };
+41C1EB284B094841BD8D908A /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/KonaVector.cpp */ = {isa = PBXBuildFile; fileRef = 0288B84EA2CB43D79BBA847F /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/KonaVector.cpp */; settings = { COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+              C58FF367C6D84974910E8A37 /*  */ = {
+                     isa = PBXBuildStyle;
+              };
+              4D3DAF4320454C65B99BD81F /* Debug */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = Debug;
+              };
+              B5D59CCEB3F8445784B62CD0 /* Release */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = Release;
+              };
+              55104B6A93C84141B8F7894B /* MinSizeRel */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = MinSizeRel;
+              };
+              E6AA5050ADBB488EA9A865A4 /* RelWithDebInfo */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = RelWithDebInfo;
+              };
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+              32D7D3A45997433299B305BE /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 30C1F54A4CE04FE1B4E8C965 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 62F77C4AFC6044FBA8662B5F;
+                     remoteInfo = konavector;
+              };
+              9AFC602AD6A141F9B89BE63E /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 30C1F54A4CE04FE1B4E8C965 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 9BD698F9C7CA47B7ADB91507;
+                     remoteInfo = ZERO_CHECK;
+              };
+              731C0B248022418FA0EA3664 /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 30C1F54A4CE04FE1B4E8C965 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = DEEDDFF210F44A628707F2B9;
+                     remoteInfo = KonaVectorTest;
+              };
+              02E7CA1AB740489F91166C22 /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 30C1F54A4CE04FE1B4E8C965 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 62F77C4AFC6044FBA8662B5F;
+                     remoteInfo = konavector;
+              };
+              CA8E2CEB741C4F6DA5EF3EBA /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 30C1F54A4CE04FE1B4E8C965 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 9BD698F9C7CA47B7ADB91507;
+                     remoteInfo = ZERO_CHECK;
+              };
+              45678FE9D7134B1BB911857A /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 30C1F54A4CE04FE1B4E8C965 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 9BD698F9C7CA47B7ADB91507;
+                     remoteInfo = ZERO_CHECK;
+              };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+6E87DBB43FF0424FACA00C99 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = "sourcecode.text"; fileEncoding = 4; name = "CMakeLists.txt"; path = "CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+144466FE0F66411DA5AED374 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = "sourcecode.text"; fileEncoding = 4; name = "CMakeLists.txt"; path = "CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+A30B96FC414D4388A3ACD1C7 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/main.cpp */ = {isa = PBXFileReference; explicitFileType = "sourcecode.cpp.cpp"; fileEncoding = 4; name = "main.cpp"; path = "main.cpp"; sourceTree = SOURCE_ROOT; };
+12C0DE617D74457D92519768 /* KonaVectorTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = KonaVectorTest; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+DACE93966D914706B1CEFC35 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = "sourcecode.text"; fileEncoding = 4; name = "CMakeLists.txt"; path = "CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+48B590293DB7434086EB5719 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = "sourcecode.text"; fileEncoding = 4; name = "CMakeLists.txt"; path = "CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+0288B84EA2CB43D79BBA847F /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/KonaVector.cpp */ = {isa = PBXFileReference; explicitFileType = "sourcecode.cpp.cpp"; fileEncoding = 4; name = "KonaVector.cpp"; path = "KonaVector.cpp"; sourceTree = SOURCE_ROOT; };
+D6831C98EDD14C96BC7D6403 /* konavector */ = {isa = PBXFileReference; explicitFileType = "archive.ar"; path = "libkonavector.a"; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+              08C36C27B3F1443593222D8A  = {
+                     isa = PBXGroup;
+                     children = (
+                            301B7056C4CE4BC2BB27E98A /* Sources */,
+                            73C661427A9449DC8FE82B8C /* Resources */,
+                            6A7EA317D0F04F4CAB9FCDA4 /* Products */,
+                     );
+                     sourceTree = "<group>";
+              };
+              301B7056C4CE4BC2BB27E98A /* Sources */ = {
+                     isa = PBXGroup;
+                     children = (
+                            2174AACB60584940A902D62E /* konavector */,
+                            E1814D6D02384A8AAAF46312 /* KonaVectorTest */,
+                            DC5D8EE4CEB54BB4A387A237 /* ALL_BUILD */,
+                            F0FA5F2428374CE4ACF31760 /* ZERO_CHECK */,
+                     );
+                     name = Sources;
+                     sourceTree = "<group>";
+              };
+              73C661427A9449DC8FE82B8C /* Resources */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = Resources;
+                     sourceTree = "<group>";
+              };
+              2174AACB60584940A902D62E /* konavector */ = {
+                     isa = PBXGroup;
+                     children = (
+                            8B865039B5974B6E8076A83F /* Source Files */,
+                            48B590293DB7434086EB5719 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */,
+                     );
+                     name = konavector;
+                     sourceTree = "<group>";
+              };
+              8B865039B5974B6E8076A83F /* Source Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            0288B84EA2CB43D79BBA847F /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/KonaVector.cpp */,
+                     );
+                     name = "Source Files";
+                     sourceTree = "<group>";
+              };
+              E1814D6D02384A8AAAF46312 /* KonaVectorTest */ = {
+                     isa = PBXGroup;
+                     children = (
+                            99A9628C63F649BCAF7C538F /* Source Files */,
+                            144466FE0F66411DA5AED374 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */,
+                     );
+                     name = KonaVectorTest;
+                     sourceTree = "<group>";
+              };
+              99A9628C63F649BCAF7C538F /* Source Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            A30B96FC414D4388A3ACD1C7 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/main.cpp */,
+                     );
+                     name = "Source Files";
+                     sourceTree = "<group>";
+              };
+              DC5D8EE4CEB54BB4A387A237 /* ALL_BUILD */ = {
+                     isa = PBXGroup;
+                     children = (
+                            BB1BA4B2FE4540A690429F7F /* CMake Rules */,
+                            6E87DBB43FF0424FACA00C99 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */,
+                     );
+                     name = ALL_BUILD;
+                     sourceTree = "<group>";
+              };
+              BB1BA4B2FE4540A690429F7F /* CMake Rules */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = "CMake Rules";
+                     sourceTree = "<group>";
+              };
+              F0FA5F2428374CE4ACF31760 /* ZERO_CHECK */ = {
+                     isa = PBXGroup;
+                     children = (
+                            AFE998AB1EF443259CF5CDDC /* CMake Rules */,
+                            DACE93966D914706B1CEFC35 /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeLists.txt */,
+                     );
+                     name = ZERO_CHECK;
+                     sourceTree = "<group>";
+              };
+              AFE998AB1EF443259CF5CDDC /* CMake Rules */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = "CMake Rules";
+                     sourceTree = "<group>";
+              };
+              6A7EA317D0F04F4CAB9FCDA4 /* Products */ = {
+                     isa = PBXGroup;
+                     children = (
+                            12C0DE617D74457D92519768 /* KonaVectorTest */,
+                            D6831C98EDD14C96BC7D6403 /* konavector */,
+                     );
+                     name = Products;
+                     sourceTree = "<group>";
+              };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+              DEEDDFF210F44A628707F2B9 /* KonaVectorTest */ = {
+                     isa = PBXNativeTarget;
+                     buildConfigurationList = ECD8DEB64F64476E83B81E37 /* Build configuration list for PBXNativeTarget "KonaVectorTest" */;
+                     buildPhases = (
+                            4522B2F08610400D99199A19 /* Sources */,
+                     );
+                     buildRules = (
+                     );
+                     dependencies = (
+                            4D562A3BFBEB494AB399189A /* PBXTargetDependency */,
+                            A9D8BA7877814D3AAC82EA30 /* PBXTargetDependency */,
+                     );
+                     name = KonaVectorTest;
+                     productName = KonaVectorTest;
+                     productReference = 12C0DE617D74457D92519768 /* KonaVectorTest */;
+                     productType = "com.apple.product-type.tool";
+              };
+              62F77C4AFC6044FBA8662B5F /* konavector */ = {
+                     isa = PBXNativeTarget;
+                     buildConfigurationList = 4755E1EDCBF04727AE9DCEA0 /* Build configuration list for PBXNativeTarget "konavector" */;
+                     buildPhases = (
+                            5DE17A3EFB8B4BDFAB698FC0 /* Sources */,
+                     );
+                     buildRules = (
+                     );
+                     dependencies = (
+                            6E9CF35A76F04F3F9A4CAB74 /* PBXTargetDependency */,
+                     );
+                     name = konavector;
+                     productName = konavector;
+                     productReference = D6831C98EDD14C96BC7D6403 /* konavector */;
+                     productType = "com.apple.product-type.library.static";
+              };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+              30C1F54A4CE04FE1B4E8C965 /* Project object */ = {
+                     isa = PBXProject;
+                     attributes = {
+                            BuildIndependentTargetsInParallel = YES;
+                     };
+                     buildConfigurationList = 50123B4D3E6044F5BDDA8717 /* Build configuration list for PBXProject  "KonaVector" */;
+                     buildSettings = {
+                     };
+                     buildStyles = (
+                            4D3DAF4320454C65B99BD81F /* Debug */,
+                            B5D59CCEB3F8445784B62CD0 /* Release */,
+                            55104B6A93C84141B8F7894B /* MinSizeRel */,
+                            E6AA5050ADBB488EA9A865A4 /* RelWithDebInfo */,
+                     );
+                     compatibilityVersion = "Xcode 3.2";
+                     hasScannedForEncodings = 0;
+                     mainGroup = 08C36C27B3F1443593222D8A;
+                     projectDirPath = ".";
+                     projectRoot = "";
+                     targets = (
+                            864C355F6B4E4F689075BB65 /* ALL_BUILD */,
+                            DEEDDFF210F44A628707F2B9 /* KonaVectorTest */,
+                            9BD698F9C7CA47B7ADB91507 /* ZERO_CHECK */,
+                            62F77C4AFC6044FBA8662B5F /* konavector */,
+                     );
+              };
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+              4090C53C06E54A9880A3B256 /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              A33424010CE94B448EE70137 /* CMake Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/aka/work/KonaReflection/src/Classes/KonaVector/src -f /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              5807A25445FD44EFA030490D /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              7F8467B4984A43008405FD17 /* CMake Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/aka/work/KonaReflection/src/Classes/KonaVector/src -f /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+              4522B2F08610400D99199A19 /* Sources */ = {
+                     isa = PBXSourcesBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                            4DF5AD155D264B7E93152BDF /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/main.cpp */,
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+              };
+              5DE17A3EFB8B4BDFAB698FC0 /* Sources */ = {
+                     isa = PBXSourcesBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                            41C1EB284B094841BD8D908A /* /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/KonaVector.cpp */,
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+              };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+              A101432395EC4BCD871D71EB /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 62F77C4AFC6044FBA8662B5F /* konavector */;
+                     targetProxy = 32D7D3A45997433299B305BE /* PBXContainerItemProxy */;
+              };
+              89A6A4CC935C4FB7A777B9C9 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 9BD698F9C7CA47B7ADB91507 /* ZERO_CHECK */;
+                     targetProxy = 9AFC602AD6A141F9B89BE63E /* PBXContainerItemProxy */;
+              };
+              DEA0215E80964020AC335ECD /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = DEEDDFF210F44A628707F2B9 /* KonaVectorTest */;
+                     targetProxy = 731C0B248022418FA0EA3664 /* PBXContainerItemProxy */;
+              };
+              4D562A3BFBEB494AB399189A /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 62F77C4AFC6044FBA8662B5F /* konavector */;
+                     targetProxy = 02E7CA1AB740489F91166C22 /* PBXContainerItemProxy */;
+              };
+              A9D8BA7877814D3AAC82EA30 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 9BD698F9C7CA47B7ADB91507 /* ZERO_CHECK */;
+                     targetProxy = CA8E2CEB741C4F6DA5EF3EBA /* PBXContainerItemProxy */;
+              };
+              6E9CF35A76F04F3F9A4CAB74 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 9BD698F9C7CA47B7ADB91507 /* ZERO_CHECK */;
+                     targetProxy = 45678FE9D7134B1BB911857A /* PBXContainerItemProxy */;
+              };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+              2B455B0627454D04A1904D97 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/build;
+                     };
+                     name = Debug;
+              };
+              5418A6F928C7425EA6F670E4 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/build;
+                     };
+                     name = Release;
+              };
+              E321B47B07FC401BA22A1249 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/build;
+                     };
+                     name = MinSizeRel;
+              };
+              37D53886E3394B379176B3B6 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/build;
+                     };
+                     name = RelWithDebInfo;
+              };
+              8988A65AC41E4BE298602070 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Debug;
+              };
+              2B263C027DE7455EA5C3ECD6 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Release;
+              };
+              9D0AA0D3472B47A2B906002D /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = MinSizeRel;
+              };
+              CDF19FA337D9494A967FAF90 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              A0EEF02918274A57961A5AC3 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "   ";
+                            OTHER_CPLUSPLUSFLAGS = "   -g  ";
+                            OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/Debug/libkonavector.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = KonaVectorTest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Debug;
+              };
+              BC0D67AEFE714EB9A00C4DE5 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 3;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/Release/libkonavector.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = KonaVectorTest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Release;
+              };
+              CA1D265EE3934262B644D9AC /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = s;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/MinSizeRel/libkonavector.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = KonaVectorTest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = MinSizeRel;
+              };
+              14D57A46F9684AE1BC22DF12 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 2;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "   ";
+                            OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -g  ";
+                            OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/aka/work/KonaReflection/src/Classes/KonaVector/src/RelWithDebInfo/libkonavector.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = KonaVectorTest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              AB84D920365F4C9A824E5444 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Debug;
+              };
+              07FCC31B3E5A4F56A302BFF1 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Release;
+              };
+              3E267EB45F294CCEB54C0598 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = MinSizeRel;
+              };
+              9A8A4EEB1296401BB0DD0160 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              60E8DBBF3BD24C6CA6B98573 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "   ";
+                            OTHER_CPLUSPLUSFLAGS = "   -g  ";
+                            OTHER_LIBTOOLFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = konavector;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Debug;
+              };
+              96EFA45D97DB4FE48A227173 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 3;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+                            OTHER_LIBTOOLFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = konavector;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = Release;
+              };
+              28C7EB4C66124B1A875A75E4 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = s;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+                            OTHER_LIBTOOLFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = konavector;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = MinSizeRel;
+              };
+              9364AB4EE60946159C6A7313 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            COMBINE_HIDPI_IMAGES = YES;
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 2;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = (/Users/aka/work/KonaReflection/src/Classes/KonaVector/src, );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "   ";
+                            OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -g  ";
+                            OTHER_LIBTOOLFLAGS = " ";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = konavector;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/aka/work/KonaReflection/src/Classes/KonaVector/src;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+                     };
+                     name = RelWithDebInfo;
+              };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+              50123B4D3E6044F5BDDA8717 /* Build configuration list for PBXProject  "KonaVector" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            2B455B0627454D04A1904D97 /* Debug */,
+                            5418A6F928C7425EA6F670E4 /* Release */,
+                            E321B47B07FC401BA22A1249 /* MinSizeRel */,
+                            37D53886E3394B379176B3B6 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              FD3B5A7626BD47E7A801C544 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            8988A65AC41E4BE298602070 /* Debug */,
+                            2B263C027DE7455EA5C3ECD6 /* Release */,
+                            9D0AA0D3472B47A2B906002D /* MinSizeRel */,
+                            CDF19FA337D9494A967FAF90 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              ECD8DEB64F64476E83B81E37 /* Build configuration list for PBXNativeTarget "KonaVectorTest" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            A0EEF02918274A57961A5AC3 /* Debug */,
+                            BC0D67AEFE714EB9A00C4DE5 /* Release */,
+                            CA1D265EE3934262B644D9AC /* MinSizeRel */,
+                            14D57A46F9684AE1BC22DF12 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              349C08B4FC06424389C6E4EB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            AB84D920365F4C9A824E5444 /* Debug */,
+                            07FCC31B3E5A4F56A302BFF1 /* Release */,
+                            3E267EB45F294CCEB54C0598 /* MinSizeRel */,
+                            9A8A4EEB1296401BB0DD0160 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              4755E1EDCBF04727AE9DCEA0 /* Build configuration list for PBXNativeTarget "konavector" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            60E8DBBF3BD24C6CA6B98573 /* Debug */,
+                            96EFA45D97DB4FE48A227173 /* Release */,
+                            28C7EB4C66124B1A875A75E4 /* MinSizeRel */,
+                            9364AB4EE60946159C6A7313 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+/* End XCConfigurationList section */
+       };
+       rootObject = 30C1F54A4CE04FE1B4E8C965;
+}
