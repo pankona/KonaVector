@@ -85,5 +85,34 @@ int main () {
     ASSERT(vector8.getAngle() == 90);
     ASSERT(vector8.getLength() == 1);
 
+    Point p1 (1, 1);
+    Vector vector11 (Point(1, 0));
+    ASSERT(vector11.distance (p1) == 1);
+
+    Point p2 (0, 1);
+    Point p3 (1, 1);
+    Point p4 (-2, 1);
+    Point p5 (3, 1);
+    Vector vector12 (Point(1, 0));
+    Vector vector13 (Point(2, 0));
+    Vector vector14 (Point(3, 0));
+
+    ASSERT(vector12.distance (p2) == 1);
+    ASSERT(vector13.distance (p2) == 1);
+    ASSERT(vector14.distance (p2) == 1);
+
+    ASSERT(vector12.distance (p3) == 1);
+    ASSERT(vector13.distance (p3) == 1);
+    ASSERT(vector14.distance (p3) == 1);
+
+    ASSERT(vector12.distance (p4) == 2);
+    ASSERT(vector13.distance (p4) == 2);
+    ASSERT(vector14.distance (p4) == 2);
+
+    ASSERT(vector12.distance (p5) == 2);
+    
+    Point p6 (0, 1);
+    Vector vector15 (Point(5, -2));
+    ASSERT(vector15.distance (p6) == 1);
     return 0;
 }
