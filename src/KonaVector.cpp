@@ -56,6 +56,22 @@ Vector::operator!= (Vector& in_v) {
 }
 
 int
+Vector::dot (Vector& in_v) {
+    Point this_p = this->getTerminal();
+    Point in_v_p = in_v.getTerminal();
+
+    return this_p.x * in_v_p.x + this_p.y * in_v_p.y;;
+}
+
+int
+Vector::cross (Vector& in_v) {
+    Point this_p = this->getTerminal();
+    Point in_v_p = in_v.getTerminal();
+
+    return this_p.x * in_v_p.y - this_p.y * in_v_p.x;
+}
+
+int
 Vector::getLength() {
     return (int) std::sqrt(terminal.x * terminal.x +
                            terminal.y * terminal.y);
