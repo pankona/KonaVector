@@ -25,6 +25,9 @@ public:
     int getAngle();
     void setLength(int in_length);
     void setAngle(int in_angle);
+    int dot(Vector& in_v);
+    int cross(Vector& in_v);
+    int distance(Point& in_p);
     void show();
     Point& getTerminal();
 };

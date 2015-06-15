@@ -56,6 +56,53 @@ Vector::operator!= (Vector& in_v) {
 }
 
 int
+Vector::dot (Vector& in_v) {
+    Point this_p = this->getTerminal();
+    Point in_v_p = in_v.getTerminal();
+
+    return this_p.x * in_v_p.x + this_p.y * in_v_p.y;;
+}
+
+int
+Vector::cross (Vector& in_v) {
+    Point this_p = this->getTerminal();
+    Point in_v_p = in_v.getTerminal();
+
+    return this_p.x * in_v_p.y - this_p.y * in_v_p.x;
+}
+
+static int
+distanceOfPointToPoint (Point& in_p1, Point& in_p2) {
+    
+    int deltaX = in_p2.x - in_p1.x;
+    int deltaY = in_p2.y - in_p1.y;
+    return (int) std::sqrt(deltaX * deltaX +
+                           deltaY * deltaY);
+}
+
+int
+Vector::distance (Point& in_p) {
+
+    if (this->getLength() == 0) {
+        // avoid 0 divide
+        return 0;
+    }
+
+    Vector vector(in_p);
+    int dot_prod = this->dot (vector);
+    if (dot_prod < 0) {
+        Point p(0, 0);
+        return distanceOfPointToPoint (in_p, p);
+    } else if (dot_prod > this->getLength()) {
+        return distanceOfPointToPoint (in_p, this->getTerminal());
+    }
+
+    Vector new_vector(in_p);
+    int cross_prod = cross (new_vector);
+    return (int) (cross_prod / this->getLength());
+}
+
+int
 Vector::getLength() {
     return (int) std::sqrt(terminal.x * terminal.x +
                            terminal.y * terminal.y);
