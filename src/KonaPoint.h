@@ -7,15 +7,15 @@ namespace Kona {
 class Point {
 
 public:
-    int x;
-    int y;
+    float x;
+    float y;
 
     Point() {
         this->x = 0;
         this->y = 0;
     };
 
-    Point(int x, int y) {
+    Point(float x, float y) {
         this->x = x;
         this->y = y;
     };
