@@ -89,11 +89,11 @@ Vector::distance (Point& in_p) {
     }
 
     Vector vector(in_p);
-    int dot_prod = this->dot (vector);
-    if (dot_prod < 0) {
+    int cosx = this->dot (vector) / this->getLength();
+    if (cosx < 0) {
         Point p(0, 0);
         return distanceOfPointToPoint (in_p, p);
-    } else if (dot_prod > this->getLength()) {
+    } else if (cosx > this->getLength()) {
         return distanceOfPointToPoint (in_p, this->getTerminal());
     }
 
