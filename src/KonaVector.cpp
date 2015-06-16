@@ -16,8 +16,8 @@ Vector::Vector (const int in_length, const int in_angle) {
     float fx = cos (rad2deg(in_angle)) * in_length;
     float fy = sin (rad2deg(in_angle)) * in_length;
 
-    terminal.x = (int) fx;
-    terminal.y = (int) fy;
+    terminal.x = fx;
+    terminal.y = fy;
 }
 
 Vector::~Vector() {
@@ -60,7 +60,7 @@ Vector::dot (Vector& in_v) {
     Point this_p = this->getTerminal();
     Point in_v_p = in_v.getTerminal();
 
-    return this_p.x * in_v_p.x + this_p.y * in_v_p.y;;
+    return (int) this_p.x * in_v_p.x + this_p.y * in_v_p.y;;
 }
 
 int
@@ -68,14 +68,14 @@ Vector::cross (Vector& in_v) {
     Point this_p = this->getTerminal();
     Point in_v_p = in_v.getTerminal();
 
-    return this_p.x * in_v_p.y - this_p.y * in_v_p.x;
+    return (int) this_p.x * in_v_p.y - this_p.y * in_v_p.x;
 }
 
 static int
 distanceOfPointToPoint (Point& in_p1, Point& in_p2) {
     
-    int deltaX = in_p2.x - in_p1.x;
-    int deltaY = in_p2.y - in_p1.y;
+    float deltaX = in_p2.x - in_p1.x;
+    float deltaY = in_p2.y - in_p1.y;
     return (int) std::sqrt(deltaX * deltaX +
                            deltaY * deltaY);
 }
@@ -89,7 +89,7 @@ Vector::distance (Point& in_p) {
     }
 
     Vector vector(in_p);
-    int cosx = this->dot (vector) / this->getLength();
+    float cosx = this->dot (vector) / this->getLength();
     if (cosx < 0) {
         Point p(0, 0);
         return distanceOfPointToPoint (in_p, p);
@@ -98,7 +98,7 @@ Vector::distance (Point& in_p) {
     }
 
     Vector new_vector(in_p);
-    int cross_prod = cross (new_vector);
+    float cross_prod = cross (new_vector);
     return (int) (cross_prod / this->getLength());
 }
 
@@ -112,7 +112,7 @@ int
 Vector::getAngle() {
     double radian = std::atan2(terminal.y, terminal.x);
     int angle = (int) (radian * 180 / M_PI);
-    return (int) angle;
+    return angle;
 }
 
 void
