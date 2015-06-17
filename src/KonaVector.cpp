@@ -12,7 +12,7 @@ Vector::Vector (const Point& in_terminal) {
     terminal = in_terminal;
 }
 
-Vector::Vector (const int in_length, const int in_angle) {
+Vector::Vector (const float in_length, const float in_angle) {
     float fx = cos (rad2deg(in_angle)) * in_length;
     float fy = sin (rad2deg(in_angle)) * in_length;
 
@@ -55,32 +55,31 @@ Vector::operator!= (Vector& in_v) {
     return this->getTerminal() != in_v.getTerminal();
 }
 
-int
+float
 Vector::dot (Vector& in_v) {
     Point this_p = this->getTerminal();
     Point in_v_p = in_v.getTerminal();
 
-    return (int) this_p.x * in_v_p.x + this_p.y * in_v_p.y;;
+    return this_p.x * in_v_p.x + this_p.y * in_v_p.y;;
 }
 
-int
+float
 Vector::cross (Vector& in_v) {
     Point this_p = this->getTerminal();
     Point in_v_p = in_v.getTerminal();
 
-    return (int) this_p.x * in_v_p.y - this_p.y * in_v_p.x;
+    return this_p.x * in_v_p.y - this_p.y * in_v_p.x;
 }
 
-static int
+static float
 distanceOfPointToPoint (Point& in_p1, Point& in_p2) {
     
     float deltaX = in_p2.x - in_p1.x;
     float deltaY = in_p2.y - in_p1.y;
-    return (int) std::sqrt(deltaX * deltaX +
-                           deltaY * deltaY);
+    return std::sqrt(deltaX * deltaX + deltaY * deltaY);
 }
 
-int
+float
 Vector::distance (Point& in_p) {
 
     if (this->getLength() == 0) {
@@ -99,24 +98,23 @@ Vector::distance (Point& in_p) {
 
     Vector new_vector(in_p);
     float cross_prod = cross (new_vector);
-    return (int) (cross_prod / this->getLength());
+    return cross_prod / this->getLength();
 }
 
-int
+float
 Vector::getLength() {
-    return (int) std::sqrt(terminal.x * terminal.x +
-                           terminal.y * terminal.y);
+    return std::sqrt(terminal.x * terminal.x + terminal.y * terminal.y);
 }
 
-int
+float
 Vector::getAngle() {
     double radian = std::atan2(terminal.y, terminal.x);
-    int angle = (int) (radian * 180 / M_PI);
+    float angle = radian * 180 / M_PI;
     return angle;
 }
 
 void
-Vector::setLength(int in_length) {
+Vector::setLength(float in_length) {
     int current_angle;
 
     current_angle = this->getAngle();
@@ -125,8 +123,8 @@ Vector::setLength(int in_length) {
 }
 
 void
-Vector::setAngle(int in_angle) {
-    int current_length;
+Vector::setAngle(float in_angle) {
+    float current_length;
 
     current_length = this->getLength();
     Vector new_vector(current_length, in_angle);
