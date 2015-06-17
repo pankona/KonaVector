@@ -14,20 +14,20 @@ private:
 public:
     Vector() : terminal() {}
     Vector(const Point& in_end);
-    Vector(int in_length, int in_angle);
+    Vector(float in_length, float in_angle);
     ~Vector();
     Vector& operator=(const Vector& in_v);
     Vector operator+(const Vector& in_v);
     Vector& operator+=(const Vector& in_v);
     bool operator==(Vector& in_v);
     bool operator!=(Vector& in_v);
-    int getLength();
-    int getAngle();
-    void setLength(int in_length);
-    void setAngle(int in_angle);
-    int dot(Vector& in_v);
-    int cross(Vector& in_v);
-    int distance(Point& in_p);
+    float getLength();
+    float getAngle();
+    void setLength(float in_length);
+    void setAngle(float in_angle);
+    float dot(Vector& in_v);
+    float cross(Vector& in_v);
+    float distance(Point& in_p);
     void show();
     Point& getTerminal();
 };
