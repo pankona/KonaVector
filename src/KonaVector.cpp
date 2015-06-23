@@ -13,8 +13,13 @@ Vector::Vector (const Point& in_terminal) {
 }
 
 Vector::Vector (const float in_length, const float in_angle) {
-    float fx = cos (rad2deg(in_angle)) * in_length;
-    float fy = sin (rad2deg(in_angle)) * in_length;
+    float angle = in_angle;
+    while (angle >= 360) {
+        angle -= 360;
+    }
+
+    float fx = cos (rad2deg(angle)) * in_length;
+    float fy = sin (rad2deg(angle)) * in_length;
 
     terminal.x = fx;
     terminal.y = fy;

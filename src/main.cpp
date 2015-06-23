@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <float.h>
 
 using namespace Kona;
 using namespace std;
@@ -24,21 +25,18 @@ int main () {
     Point terminal1(1, 1);
     Vector vector1(terminal1);
     ASSERT(vector1.getAngle() == 45);
-    ASSERT(vector1.getLength() == std::sqrt(1 + 1));
-    cout << vector1.getLength() << endl;
-    cout << std::sqrt(1 + 1) << endl;
-
+    ASSERT(vector1.getLength() - std::sqrt(1 + 1) < FLT_EPSILON);
     Point terminal2(1, 1);
     Vector vector2(terminal2);
 
     Vector vector3;
     vector3 = vector1 + vector2;
     ASSERT(vector1.getAngle() == 45);
-    ASSERT(vector1.getLength() == (int)std::sqrt(1));
+    ASSERT(vector1.getLength() - std::sqrt(1 + 1) < FLT_EPSILON);
     ASSERT(vector2.getAngle() == 45);
-    ASSERT(vector2.getLength() == (int)std::sqrt(1));
+    ASSERT(vector2.getLength() - std::sqrt(1 + 1) < FLT_EPSILON);
     ASSERT(vector3.getAngle() == 45);
-    ASSERT(vector3.getLength() == (int)std::sqrt(4 + 4));
+    ASSERT(vector3.getLength() - std::sqrt(4 + 4) < FLT_EPSILON);
 
     Vector vector4 (1, 0);
     ASSERT(vector4.getAngle() == 0);
@@ -54,6 +52,7 @@ int main () {
 
     Vector vector7 (2, 360);
     ASSERT(vector7.getAngle() == 0);
+    cout << vector7.getAngle() << endl;
     ASSERT(vector7.getLength() == 2);
 
     vector7.setLength (3);
