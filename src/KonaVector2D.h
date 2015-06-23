@@ -22,7 +22,7 @@ public:
     Point getTerminalPosition();
     float getLength();
     float getAngle();
-
+    void show();
 };
 
 } // end of namespace

@@ -43,9 +43,6 @@ Vector2D::calcIntersectPoint(Vector2D in_v, Point* out_point) {
     b1 = in_v.getStartPosition();
     b2 = in_v.getTerminalPosition();
 
-    cout << "a = " << a1.x << " " << a1.y << " " << a2.x << " "  << a2.y << endl;
-    cout << "b = " << b1.x << " " << b1.y << " " << b2.x << " "  << b2.y << endl;
-
     float r, s;
     float denominator = (a2.x - a1.x) * (b2.y - b1.y) - (a2.y - a1.y) * (b2.x - b1.x);
 
@@ -83,3 +80,13 @@ float
 Vector2D::getAngle() {
     return vector.getAngle();
 }
+
+void
+Vector2D::show() {
+    Point start, end;
+    start = this->position;
+    end = this->getTerminalPosition();
+
+    cout << "(" << start.x << ", " << start.y << "), (" << end.x << ", "  << end.y << ")" << endl;
+}
+

@@ -119,7 +119,9 @@ int main () {
 
     cout << "Test for konaVector2D" << endl;
     Vector2D v2d1(Vector(Point(2, 2)), Point(0, 0));
+    v2d1.show();
     Vector2D v2d2(Vector(Point(1, -1)), Point(1, 1));
+    v2d2.show();
     Point ip;
     bool result;
     result = v2d1.calcIntersectPoint(v2d2, &ip);
