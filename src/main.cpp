@@ -52,7 +52,6 @@ int main () {
 
     Vector vector7 (2, 360);
     ASSERT(vector7.getAngle() == 0);
-    cout << vector7.getAngle() << endl;
     ASSERT(vector7.getLength() == 2);
 
     vector7.setLength (3);
@@ -71,11 +70,11 @@ int main () {
     Vector vector9 (Point(0, 1));
     Vector vector10 = vector8 + vector9;
     ASSERT(vector10.getAngle() == 45);
-    ASSERT(vector10.getLength() == (int) std::sqrt(1 + 1));
+    ASSERT(vector10.getLength() - std::sqrt(1 + 1) < FLT_EPSILON);
 
     vector8 += vector9;
     ASSERT(vector8.getAngle() == 45);
-    ASSERT(vector8.getLength() == (int) std::sqrt(1 + 1));
+    ASSERT(vector8.getLength() - std::sqrt(1 + 1) < FLT_EPSILON);
 
     ASSERT(vector9.getAngle() == 90);
     ASSERT(vector9.getLength() == 1);
@@ -107,11 +106,11 @@ int main () {
     ASSERT(vector13.distance (p3) == 1);
     ASSERT(vector14.distance (p3) == 1);
 
-    ASSERT(vector12.distance (p4) == 2);
-    ASSERT(vector13.distance (p4) == 2);
-    ASSERT(vector14.distance (p4) == 2);
+    ASSERT(vector12.distance (p4) - std::sqrt(4 + 1) < FLT_EPSILON);
+    ASSERT(vector13.distance (p4) - std::sqrt(4 + 1) < FLT_EPSILON);
+    ASSERT(vector14.distance (p4) - std::sqrt(4 + 1) < FLT_EPSILON);
 
-    ASSERT(vector12.distance (p5) == 2);
+    ASSERT(vector12.distance (p5) - std::sqrt(9 + 1) < FLT_EPSILON);
     
     Point p6 (0, 1);
     Vector vector15 (Point(5, -2));
