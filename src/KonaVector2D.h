@@ -15,9 +15,13 @@ private:
 
 public:
     Vector2D(Vector, Point);
-    Point getPosition();
+    Vector2D(Point, Point);
+    Point getStartPosition();
     Vector getVector();
-    Point calcIntersectPoint(Vector2D);
+    bool calcIntersectPoint(Vector2D, Point*);
+    Point getTerminalPosition();
+    float getLength();
+    float getAngle();
 
 };
 

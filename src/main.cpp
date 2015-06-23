@@ -1,5 +1,6 @@
 
 #include "KonaVector.h"
+#include "KonaVector2D.h"
 
 #include <iostream>
 #include <cmath>
@@ -23,7 +24,9 @@ int main () {
     Point terminal1(1, 1);
     Vector vector1(terminal1);
     ASSERT(vector1.getAngle() == 45);
-    ASSERT(vector1.getLength() == (int)std::sqrt(1));
+    ASSERT(vector1.getLength() == std::sqrt(1 + 1));
+    cout << vector1.getLength() << endl;
+    cout << std::sqrt(1 + 1) << endl;
 
     Point terminal2(1, 1);
     Vector vector2(terminal2);
@@ -114,5 +117,16 @@ int main () {
     Point p6 (0, 1);
     Vector vector15 (Point(5, -2));
     ASSERT(vector15.distance (p6) == 1);
+
+
+    cout << "Test for konaVector2D" << endl;
+    Vector2D v2d1(Vector(Point(2, 2)), Point(0, 0));
+    Vector2D v2d2(Vector(Point(1, -1)), Point(1, 1));
+    Point ip;
+    bool result;
+    result = v2d1.calcIntersectPoint(v2d2, &ip);
+    ASSERT(result);
+    ASSERT(ip == Point(1, 1));
+
     return 0;
 }

@@ -6,13 +6,21 @@ using namespace Kona;
 using namespace std;
 
 
-Vector2D::Vector2D(Vector in_v, Point in_p) {
+Vector2D::Vector2D(Vector in_v, Point in_startPoint) {
     this->vector = in_v;
-    this->position = in_p;
+    this->position = in_startPoint;
+}
+
+Vector2D::Vector2D(Point in_startPoint, Point in_endPoint) {
+    this->position = in_startPoint;
+
+    float deltaX = in_endPoint.x - in_startPoint.x;
+    float deltaY = in_endPoint.y - in_startPoint.y;
+    this->vector = Vector(Point(deltaX, deltaY));
 }
 
 Point
-Vector2D::getPosition() {
+Vector2D::getStartPosition() {
     return this->position;
 }
 
@@ -21,38 +29,57 @@ Vector2D::getVector() {
     return this->vector;
 }
 
-Point
-Vector2D::calcIntersectPoint(Vector2D in_v) {
+bool
+Vector2D::calcIntersectPoint(Vector2D in_v, Point* out_point) {
+
+    if (out_point == NULL) {
+        return false;
+    }
 
     Point a1, a2, b1, b2;
     a1 = this->position;
-    a2.x = a1.x + this->vector.getTerminal().x;
-    a2.y = a1.y + this->vector.getTerminal().y;
+    a2 = this->getTerminalPosition();
 
-    b1 = in_v.getPosition();
-    b2.x = b1.x + in_v.getVector().getTerminal().x;
-    b2.y = b1.y + in_v.getVector().getTerminal().y;
+    b1 = in_v.getStartPosition();
+    b2 = in_v.getTerminalPosition();
 
-    double r, s;
-    double denominator = (a2.x - a1.x) * (b2.y - b1.y) - (a2.y - a1.y) * (b2.x - b1.x);
+    cout << "a = " << a1.x << " " << a1.y << " " << a2.x << " "  << a2.y << endl;
+    cout << "b = " << b1.x << " " << b1.y << " " << b2.x << " "  << b2.y << endl;
 
+    float r, s;
+    float denominator = (a2.x - a1.x) * (b2.y - b1.y) - (a2.y - a1.y) * (b2.x - b1.x);
 
     if(denominator == 0) {
-        return Point(0, 0);
+        return false;
     }
 
-    double numeratorR = (a1.y - b1.y) * (b2.x - b1.x) - (a1.x - b1.x) * (b2.y - b1.y);
+    float numeratorR = (a1.y - b1.y) * (b2.x - b1.x) - (a1.x - b1.x) * (b2.y - b1.y);
     r = numeratorR / denominator;
 
-    double numeratorS = (a1.y - b1.y) * (a2.x - a1.x) - (a1.x - b1.x) * (a2.y - a1.y);
+    float numeratorS = (a1.y - b1.y) * (a2.x - a1.x) - (a1.x - b1.x) * (a2.y - a1.y);
     s = numeratorS / denominator;
 
-    if(r < 0 || r > 1 || s<0 || s > 1) {
-        return Point(0, 0);
+    if(r < 0 || r > 1 || s < 0 || s > 1) {
+        return false;
     }
 
-    Point ret;
-    ret.x = (float)(a1.x + (r * (a2.x - a1.x)));
-    ret.y = (float)(a1.y + (r * (a2.y - a1.y)));
-    return ret;
+    out_point->x = a1.x + (r * (a2.x - a1.x));
+    out_point->y = a1.y + (r * (a2.y - a1.y));
+    return true;
+}
+
+Point
+Vector2D::getTerminalPosition() {
+    return Point(position.x + vector.getTerminal().x,
+                 position.y + vector.getTerminal().y);
+}
+
+float
+Vector2D::getLength() {
+    return vector.getLength();
+}
+
+float
+Vector2D::getAngle() {
+    return vector.getAngle();
 }
