@@ -81,6 +81,23 @@ Vector2D::getAngle() {
     return vector.getAngle();
 }
 
+bool
+Vector2D::isTowardRight() {
+    return vector.isTowardRight();
+}
+bool
+Vector2D::isTowardLeft() {
+    return vector.isTowardLeft();
+}
+bool
+Vector2D::isTowardUp() {
+    return vector.isTowardUp();
+}
+bool
+Vector2D::isTowardDown() {
+    return vector.isTowardDown();
+}
+
 void
 Vector2D::show() {
     Point start, end;

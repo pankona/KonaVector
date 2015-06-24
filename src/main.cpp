@@ -22,6 +22,7 @@ using namespace std;
 int main () {
     cout << "KonaVector test application!" << endl;
 
+    cout << "@@@ Test for konaVector @@@" << endl;
     Point terminal1(1, 1);
     Vector vector1(terminal1);
     ASSERT(vector1.getAngle() == 45);
@@ -142,14 +143,23 @@ int main () {
     ASSERT(std::abs(vector14.distance (p4) - std::sqrt(4 + 1)) < FLT_EPSILON);
 
     ASSERT(std::abs(vector12.distance (p5) - std::sqrt(4 + 1)) < FLT_EPSILON);
-    
+
     Point p6 (0, 1);
     Vector vector15 (Point(5, -2));
     ASSERT(vector15.distance (p6) == 1);
 
-    cout << "Test for konaVector2D" << endl;
+    cout << endl;
+    cout << "@@@ Test for konaVector2D @@@" << endl;
     Vector2D v2d1(Vector(Point(2, 2)), Point(0, 0));
+    ASSERT(v2d1.isTowardRight());
+    ASSERT(!v2d1.isTowardLeft());
+    ASSERT(v2d1.isTowardUp());
+    ASSERT(!v2d1.isTowardDown());
     Vector2D v2d2(Vector(Point(1, -1)), Point(1, 1));
+    ASSERT(v2d2.isTowardRight());
+    ASSERT(!v2d2.isTowardLeft());
+    ASSERT(!v2d2.isTowardUp());
+    ASSERT(v2d2.isTowardDown());
     Point ip;
     bool result;
     result = v2d1.calcIntersectPoint(v2d2, &ip);

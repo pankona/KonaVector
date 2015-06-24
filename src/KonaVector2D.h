@@ -22,6 +22,10 @@ public:
     Point getTerminalPosition();
     float getLength();
     float getAngle();
+    bool isTowardRight();
+    bool isTowardLeft();
+    bool isTowardUp();
+    bool isTowardDown();
     void show();
 };
 
