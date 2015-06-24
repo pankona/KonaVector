@@ -16,10 +16,17 @@ private:
 public:
     Vector2D(Vector, Point);
     Vector2D(Point, Point);
+
     Point getStartPosition();
+    void setStartPosition(Point);
+
     Vector getVector();
-    bool calcIntersectPoint(Vector2D, Point*);
+    void setVector(Vector);
+
     Point getTerminalPosition();
+
+    bool calcIntersectPoint(Vector2D, Point*);
+
     float getLength();
     float getAngle();
     bool isTowardRight();

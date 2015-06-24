@@ -24,9 +24,25 @@ Vector2D::getStartPosition() {
     return this->position;
 }
 
+void
+Vector2D::setStartPosition(Point in_p) {
+    this->position = in_p;
+}
+
 Vector
 Vector2D::getVector() {
     return this->vector;
+}
+
+void
+Vector2D::setVector(Vector in_v) {
+    this->vector = in_v;
+}
+
+Point
+Vector2D::getTerminalPosition() {
+    return Point(position.x + vector.getTerminal().x,
+                 position.y + vector.getTerminal().y);
 }
 
 bool
@@ -63,12 +79,6 @@ Vector2D::calcIntersectPoint(Vector2D in_v, Point* out_point) {
     out_point->x = a1.x + (r * (a2.x - a1.x));
     out_point->y = a1.y + (r * (a2.y - a1.y));
     return true;
-}
-
-Point
-Vector2D::getTerminalPosition() {
-    return Point(position.x + vector.getTerminal().x,
-                 position.y + vector.getTerminal().y);
 }
 
 float
