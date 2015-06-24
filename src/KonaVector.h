@@ -28,6 +28,10 @@ public:
     float dot(Vector& in_v);
     float cross(Vector& in_v);
     float distance(Point& in_p);
+    bool isTowardRight();
+    bool isTowardLeft();
+    bool isTowardUp();
+    bool isTowardDown();
     void show();
     Point& getTerminal();
 };

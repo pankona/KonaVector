@@ -2,6 +2,7 @@
 #include "KonaVector.h"
 #include <iostream>
 #include <cmath>
+#include <float.h>
 
 using namespace Kona;
 using namespace std;
@@ -14,14 +15,26 @@ Vector::Vector (const Point& in_terminal) {
 
 Vector::Vector (const float in_length, const float in_angle) {
     float angle = in_angle;
-    while (angle >= 360) {
-        angle -= 360;
+    while (angle >= 360.0) {
+        angle -= 360.0;
     }
 
-    float fx = cos (rad2deg(angle)) * in_length;
-    float fy = sin (rad2deg(angle)) * in_length;
-
+    float fx;
+    if (std::abs(angle - 90) < FLT_EPSILON ||
+        std::abs(angle - 270) < FLT_EPSILON) {
+        fx = 0;
+    } else {
+        fx = cos (rad2deg(angle)) * in_length;
+    }
     terminal.x = fx;
+
+    float fy;
+    if (std::abs(angle) < FLT_EPSILON ||
+        std::abs(angle - 180) < FLT_EPSILON) {
+        fy = 0;
+    } else {
+        fy = sin (rad2deg(angle)) * in_length;
+    }
     terminal.y = fy;
 }
 
@@ -134,6 +147,26 @@ Vector::setAngle(float in_angle) {
     current_length = this->getLength();
     Vector new_vector(current_length, in_angle);
     *this = new_vector;
+}
+
+bool
+Vector::isTowardRight() {
+    return terminal.x > 0;
+}
+
+bool
+Vector::isTowardLeft() {
+    return terminal.x < 0;
+}
+
+bool
+Vector::isTowardUp() {
+    return terminal.y > 0;
+}
+
+bool
+Vector::isTowardDown() {
+    return terminal.y < 0;
 }
 
 void
