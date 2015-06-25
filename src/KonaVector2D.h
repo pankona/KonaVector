@@ -25,10 +25,13 @@ public:
 
     Point getTerminalPosition();
 
-    bool calcIntersectPoint(Vector2D, Point*);
-
     float getLength();
+    void setLength(float);
+
     float getAngle();
+    void setAngle(float);
+
+    bool calcIntersectPoint(Vector2D, Point*);
     bool isTowardRight();
     bool isTowardLeft();
     bool isTowardUp();

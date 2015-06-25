@@ -86,9 +86,19 @@ Vector2D::getLength() {
     return vector.getLength();
 }
 
+void
+Vector2D::setLength(float in_length) {
+    vector.setLength(in_length);
+}
+
 float
 Vector2D::getAngle() {
     return vector.getAngle();
+}
+
+void
+Vector2D::setAngle(float in_angle) {
+    vector.setAngle(in_angle);
 }
 
 bool
