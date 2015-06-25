@@ -7,7 +7,8 @@ LOCAL_MODULE := konavector_static
 LOCAL_MODULE_FILENAME := libkonavector
 
 LOCAL_SRC_FILES := \
-	KonaVector.cpp
+	KonaVector.cpp \
+	KonaVector2D.cpp
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 LOCAL_C_INCLUDES := $(LOCAL_PATH)
