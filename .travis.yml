@@ -1,0 +1,7 @@
+install:
+    - cd ./src
+    - cmake .
+
+script:
+    - make
+    - ./KonaVectorTest
