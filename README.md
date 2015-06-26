@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/pankona/KonaVector.svg?branch=master)](https://travis-ci.org/pankona/KonaVector)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/5604/badge.svg)](https://scan.coverity.com/projects/5604)
 
 # このリポジトリは
 
