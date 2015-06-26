@@ -1,20 +1,22 @@
 language: cpp
+compiler:
+    - gcc
 
 env:
-  global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "RPxV0wUptOASopA6Cho4cZ/vo+jpkPXXQ6JWw6duDh6PPeYTygmklAks3aWCWtpl1U3yuUV0TCKF6L0Pk4BZ8joEXCaYv6pIH+y/ok7T/sdUtwnXtJDvUQKYw8OuH5m0xj9U56iygMYM7k8pVup4Hily9E3Tx6+8IgjmjvqbrKJ56rsKUT3SDC4KGFPGoGF609cE2+FcqykTzVmcQM1VWa2bDaK986G+T3GhsVqqV7nmy5nd4Nz3KfmVMAqXhL+7bDXrXFue/rq8t37e54LkIBkPgWbJFOGr3x6QDIHbFys+1rZQbS0ONl30PqglVTPqJyMwYykhSXOeLkOR5WAJ5z17Aczb7+4G8lWbxdI76lEopKYPEblTN8zTbt3UPvWyVrDYpJeFgtjOQyjWE8tcKgiwWH5rzWqy68bDl68U9MOHwaLfkKgrfM59m2Yrqhr/pgEEc2HnnmZAaLmkktCujS4qCFZ6G0iUBufXrv2IbquFo01Or5fxw+G/Oa8i7O3LYnUJpKyXua5E38diME1MAgxyOBHaj9u2LcbZiHJJLshWKXsq8U2whl9udLLLIUAtdfUofr6G+3T64U7zoGu6AbBXbsUaFDkVqmL2xePd6AXSlnGc59LGumKlYZugCrXbOeJA9CKF4zuQDQ4JVLfExhWlxwFJ40xDJKdFFP+ErNw="
+    global:
+        # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+        #   via the "travis encrypt" command using the project repo's public key
+        - secure: "RPxV0wUptOASopA6Cho4cZ/vo+jpkPXXQ6JWw6duDh6PPeYTygmklAks3aWCWtpl1U3yuUV0TCKF6L0Pk4BZ8joEXCaYv6pIH+y/ok7T/sdUtwnXtJDvUQKYw8OuH5m0xj9U56iygMYM7k8pVup4Hily9E3Tx6+8IgjmjvqbrKJ56rsKUT3SDC4KGFPGoGF609cE2+FcqykTzVmcQM1VWa2bDaK986G+T3GhsVqqV7nmy5nd4Nz3KfmVMAqXhL+7bDXrXFue/rq8t37e54LkIBkPgWbJFOGr3x6QDIHbFys+1rZQbS0ONl30PqglVTPqJyMwYykhSXOeLkOR5WAJ5z17Aczb7+4G8lWbxdI76lEopKYPEblTN8zTbt3UPvWyVrDYpJeFgtjOQyjWE8tcKgiwWH5rzWqy68bDl68U9MOHwaLfkKgrfM59m2Yrqhr/pgEEc2HnnmZAaLmkktCujS4qCFZ6G0iUBufXrv2IbquFo01Or5fxw+G/Oa8i7O3LYnUJpKyXua5E38diME1MAgxyOBHaj9u2LcbZiHJJLshWKXsq8U2whl9udLLLIUAtdfUofr6G+3T64U7zoGu6AbBXbsUaFDkVqmL2xePd6AXSlnGc59LGumKlYZugCrXbOeJA9CKF4zuQDQ4JVLfExhWlxwFJ40xDJKdFFP+ErNw="
 
 addons:
-  coverity_scan:
-    project:
-      name: "pankona/KonaVector"
-      description: "Build submitted via Travis CI"
-    notification_email: yosuke.akatsuka@gmail.com
-    build_command_prepend: "cd ./src && cmake ."
-    build_command: "make"
-    branch_pattern: coverity_scan
+    coverity_scan:
+        project:
+            name: "pankona/KonaVector"
+            description: "Build submitted via Travis CI"
+        notification_email: yosuke.akatsuka@gmail.com
+        build_command_prepend: "cd ./src && cmake . && make clean"
+        build_command: "make"
+        branch_pattern: coverity_scan
 
 install:
     - cd ./src
