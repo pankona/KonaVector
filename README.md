@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pankona/KonaVector.svg?branch=master)](https://travis-ci.org/pankona/KonaVector)
+
 # このリポジトリは
 
 ベクトルの合成計算をするためのライブラリ（になる予定）のリポジトリです。
