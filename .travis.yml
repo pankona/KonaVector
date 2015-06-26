@@ -1,3 +1,19 @@
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "bvGr/x9bdMsmkSugpB018nM+89bImZ9os/OZNeq8XAtbbEOtrRVHl8RRo9IjrDp1f0BrovZw3El80IVCZ8LIX5DS+WTeg/R3WZoiD7DgLT+b0nLBt4x50Mg/xOowGbSuQhH9RIdSjxGs0wL3OcsHnZ5FAMpKf2h7ZF8kpSF293Nr0A6M9LktUQgQVD1EFN0q/NAqAq3o8JVLqlfwihFSrrlQ8mC5yqZs0b9BoxecmxFExfGzo5yI9JlpMR9/B167+JXJVyrLjrUjCgzoN87dm++pyAG+5x+Iy4SI4YSGaSRkfeWqieWh+MU4ths0r/stgPHZcBIvzh7mj9vcoIxtOW6bXfEjDHSur4ICY3AqWqZ/XCXcRoq8VlvdRW3ICzpkPVWSpR5oBVCFiPe8S+nzpycPNOlRxsgx011xWHZhOrmxNQpsP8T0+H+Qjuog0/Dyl4ncS4GygTaSqb+cj/jV7rrsoa0eHvTYIMkNgAeZaQ2FoG5R+b+pTlpaVurrZTky62ZPnb1M0jNAI+Q4LuGJR/5hQrSRvyZ7jfynZYaMPyOsidQ0bBYarVOcaKjum+NSZnXvxSFzWIdSy3tJrmjAzlND32MCGWkmHetORioWi7Bi2Pbk+3PVNR/4czeOOweFQQBS6GmlY3GmYBWs1+WiUv6vBT9asdbZBQWWkSekLeo="
+
+addons:
+  coverity_scan:
+    project:
+      name: "pankona/KonaVector"
+      description: "Build submitted via Travis CI"
+    notification_email: yosuke.akatsuka@gmail.com
+    build_command_prepend: "cd ./src && cmake ."
+    build_command: "make"
+    branch_pattern: coverity_scan
+
 install:
     - cd ./src
     - cmake .
