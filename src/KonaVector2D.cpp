@@ -19,6 +19,13 @@ Vector2D::Vector2D(Point in_startPoint, Point in_endPoint) {
     this->vector = Vector(Point(deltaX, deltaY));
 }
 
+Vector2D&
+Vector2D::operator=(Vector2D in_v) {
+    this->vector = in_v.getVector();
+    this->position = in_v.getStartPosition();
+    return *this;
+}
+
 Point
 Vector2D::getStartPosition() {
     return this->position;

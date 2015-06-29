@@ -17,6 +17,8 @@ public:
     Vector2D(Vector, Point);
     Vector2D(Point, Point);
 
+    Vector2D& operator=(Vector2D in_v);
+
     Point getStartPosition();
     void setStartPosition(Point);
 
