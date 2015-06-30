@@ -116,7 +116,7 @@ Vector::distance (Point& in_p) {
 
     Vector new_vector(in_p);
     float cross_prod = cross (new_vector);
-    return cross_prod / this->getLength();
+    return std::abs(cross_prod) / this->getLength();
 }
 
 float
