@@ -40,6 +40,9 @@ public:
     bool isTowardLeft();
     bool isTowardUp();
     bool isTowardDown();
+
+    float cross(Point);
+
     void show();
 };
 

@@ -155,6 +155,7 @@ int main () {
     ASSERT(!v2d1.isTowardLeft());
     ASSERT(v2d1.isTowardUp());
     ASSERT(!v2d1.isTowardDown());
+
     Vector2D v2d2(Vector(Point(1, -1)), Point(1, 1));
     ASSERT(v2d2.isTowardRight());
     ASSERT(!v2d2.isTowardLeft());
@@ -165,6 +166,30 @@ int main () {
     result = v2d1.calcIntersectPoint(v2d2, &ip);
     ASSERT(result);
     ASSERT(ip == Point(1, 1));
+
+    Vector2D v2d3(Vector(Point(2, 2)), Point(0, 0));
+    Point p7(1, 0);
+    ASSERT(v2d3.cross(p7) < 0);
+    p7 = Point(0, 1);
+    ASSERT(v2d3.cross(p7) > 0);
+    p7 = Point(1, 1);
+    ASSERT(v2d3.cross(p7) == 0);
+    v2d3 = Vector2D(Vector(Point(2, 2)), Point(2, 2));
+    p7 = Point(1, 0);
+    ASSERT(v2d3.cross(p7) < 0);
+    p7 = Point(0, 1);
+    ASSERT(v2d3.cross(p7) > 0);
+    p7 = Point(1, 1);
+    ASSERT(v2d3.cross(p7) == 0);
+    v2d3 = Vector2D(Vector(Point(2, 2)), Point(-2, -2));
+    p7 = Point(1, 0);
+    ASSERT(v2d3.cross(p7) < 0);
+    p7 = Point(0, 1);
+    ASSERT(v2d3.cross(p7) > 0);
+    p7 = Point(1, 1);
+    ASSERT(v2d3.cross(p7) == 0);
+
+
 
     return 0;
 }

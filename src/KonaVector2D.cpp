@@ -131,6 +131,14 @@ Vector2D::isTowardDown() {
     return vector.isTowardDown();
 }
 
+float
+Vector2D::cross(Point in_p) {
+    Point p(in_p.x - position.x,
+            in_p.y - position.y);
+    Vector v(p);
+    return vector.cross(v);
+}
+
 void
 Vector2D::show() {
     Point start, end;
