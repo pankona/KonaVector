@@ -34,6 +34,8 @@ public:
     void setAngle(float);
 
     bool calcIntersectPoint(Vector2D, Point*);
+    float distanceToPoint(Point);
+
     bool isTowardRight();
     bool isTowardLeft();
     bool isTowardUp();

@@ -89,6 +89,12 @@ Vector2D::calcIntersectPoint(Vector2D in_v, Point* out_point) {
 }
 
 float
+Vector2D::distanceToPoint(Point in_p) {
+    Kona::Point p (in_p.x - position.x, in_p.y - position.y);
+    return vector.distance(p);
+}
+
+float
 Vector2D::getLength() {
     return vector.getLength();
 }
