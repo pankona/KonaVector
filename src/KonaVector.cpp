@@ -9,6 +9,18 @@ using namespace std;
 
 #define rad2deg(a) ((a) / 180.0 * M_PI)
 
+static int
+floatCompare (float a, float b) {
+    if (a == b ||
+        std::abs(a - b) < std::max(a , b) * FLT_EPSILON) {
+       return 0;
+    } else if (a > b) {
+       return -1;
+    } else {
+        return 1;
+    }
+}
+
 Vector::Vector (const Point& in_terminal) {
     terminal = in_terminal;
 }
@@ -20,8 +32,8 @@ Vector::Vector (const float in_length, const float in_angle) {
     }
 
     float fx;
-    if (std::abs(angle - 90) < FLT_EPSILON ||
-        std::abs(angle - 270) < FLT_EPSILON) {
+    if (floatCompare(angle, 90) == 0 ||
+        floatCompare(angle, 270) == 0) {
         fx = 0;
     } else {
         fx = cos (rad2deg(angle)) * in_length;
@@ -29,8 +41,8 @@ Vector::Vector (const float in_length, const float in_angle) {
     terminal.x = fx;
 
     float fy;
-    if (std::abs(angle) < FLT_EPSILON ||
-        std::abs(angle - 180) < FLT_EPSILON) {
+    if (floatCompare(angle, 0) == 0 ||
+        floatCompare(angle, 180) == 0) {
         fy = 0;
     } else {
         fy = sin (rad2deg(angle)) * in_length;

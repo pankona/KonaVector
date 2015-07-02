@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cmath>
 #include <float.h>
+#include <algorithm>
 
 using namespace Kona;
 using namespace std;
@@ -12,12 +13,24 @@ using namespace std;
 #define ASSERT(x)                                \
         cout << "[" << __func__ << "]"           \
              << "[" << __LINE__ << "] ";         \
-        if ((x)) {                              \
-            cout << "." << endl; \
+        if ((x)) {                               \
+            cout << "." << endl;                 \
         } else {                                 \
             cout << "Assertion failed!" << endl; \
         }
 
+
+static int
+floatCompare (float a, float b) {
+    if (a == b ||
+        std::abs(a - b) < std::max(a , b) * FLT_EPSILON) {
+       return 0;
+    } else if (a > b) {
+       return -1;
+    } else {
+        return 1;
+    }
+}
 
 int main () {
     cout << "KonaVector test application!" << endl;
@@ -26,7 +39,7 @@ int main () {
     Point terminal1(1, 1);
     Vector vector1(terminal1);
     ASSERT(vector1.getAngle() == 45);
-    ASSERT(std::abs(vector1.getLength() - std::sqrt(1 + 1)) < FLT_EPSILON);
+    ASSERT(floatCompare(vector1.getAngle(), 45) == 0);
     ASSERT(vector1.isTowardRight());
     ASSERT(vector1.isTowardUp());
     ASSERT(!vector1.isTowardLeft());
@@ -41,25 +54,25 @@ int main () {
     Vector vector3;
     vector3 = vector1 + vector2;
     ASSERT(vector1.getAngle() == 45);
-    ASSERT(std::abs(vector1.getLength() - std::sqrt(1 + 1)) < FLT_EPSILON);
+    ASSERT(floatCompare(vector1.getLength(), std::sqrt(1 + 1)) == 0);
     ASSERT(vector2.getAngle() == 45);
-    ASSERT(std::abs(vector2.getLength() - std::sqrt(1 + 1)) < FLT_EPSILON);
+    ASSERT(floatCompare(vector2.getLength(), std::sqrt(1 + 1)) == 0);
     ASSERT(vector3.getAngle() == 45);
-    ASSERT(std::abs(vector3.getLength() - std::sqrt(4 + 4)) < FLT_EPSILON);
+    ASSERT(floatCompare(vector3.getLength(), std::sqrt(4 + 4)) == 0);
     ASSERT(vector3.isTowardRight());
     ASSERT(vector3.isTowardUp());
     ASSERT(!vector3.isTowardLeft());
     ASSERT(!vector3.isTowardDown());
 
     Vector vector4 (1, 0);
-    ASSERT(vector4.getAngle() == 0);
+    ASSERT(floatCompare(vector4.getAngle(), 0) == 0);
     ASSERT(vector4.getLength() == 1);
     ASSERT(vector4.isTowardRight());
     ASSERT(!vector4.isTowardUp());
     ASSERT(!vector4.isTowardDown());
 
     Vector vector5 (1, 90);
-    ASSERT(vector5.getAngle() == 90);
+    ASSERT(floatCompare(vector5.getAngle(), 90) == 0);
     ASSERT(vector5.getLength() == 1);
     ASSERT(!vector5.isTowardRight());
     ASSERT(!vector5.isTowardLeft());
@@ -67,7 +80,7 @@ int main () {
     ASSERT(!vector5.isTowardDown());
 
     Vector vector6 (2, 180);
-    ASSERT(vector6.getAngle() == 180);
+    ASSERT(floatCompare(vector6.getAngle(), 180) == 0);
     ASSERT(vector6.getLength() == 2);
     ASSERT(!vector6.isTowardRight());
     ASSERT(vector6.isTowardLeft());
@@ -87,11 +100,11 @@ int main () {
     ASSERT(vector7.getLength() == 3);
 
     vector7.setAngle (90);
-    ASSERT(vector7.getAngle() == 90);
+    ASSERT(floatCompare(vector7.getAngle(), 90) == 0);
     ASSERT(vector7.getLength() == 3);
 
-    vector7.setAngle (180);
-    ASSERT(vector7.getAngle() == 180);
+    vector7.setAngle (180.0);
+    ASSERT(floatCompare(vector7.getAngle(), 180.0) == 0);
     ASSERT(vector7.getLength() == 3);
     ASSERT(!vector7.isTowardRight());
     ASSERT(vector7.isTowardLeft());
@@ -101,21 +114,21 @@ int main () {
     Vector vector8 (Point(1, 0));
     Vector vector9 (Point(0, 1));
     Vector vector10 = vector8 + vector9;
-    ASSERT(vector10.getAngle() == 45);
-    ASSERT(std::abs(vector10.getLength() - std::sqrt(1 + 1)) < FLT_EPSILON);
+    ASSERT(floatCompare(vector10.getAngle(), 45) == 0);
+    ASSERT(floatCompare(vector10.getLength(), std::sqrt(1 + 1)) == 0);
 
     vector8 += vector9;
-    ASSERT(vector8.getAngle() == 45);
-    ASSERT(std::abs(vector8.getLength() - std::sqrt(1 + 1)) < FLT_EPSILON);
+    ASSERT(floatCompare(vector8.getAngle(), 45) == 0);
+    ASSERT(floatCompare(vector8.getLength(), std::sqrt(1 + 1)) == 0);
 
-    ASSERT(vector9.getAngle() == 90);
+    ASSERT(floatCompare(vector9.getAngle(), 90) == 0);
     ASSERT(vector9.getLength() == 1);
 
     ASSERT(vector8 == vector10)
     ASSERT(vector9 != vector10)
     vector8 = vector9;
     ASSERT(vector8 == vector9)
-    ASSERT(vector8.getAngle() == 90);
+    ASSERT(floatCompare(vector8.getAngle(), 90) == 0);
     ASSERT(vector8.getLength() == 1);
 
     Point p1 (1, 1);
@@ -138,11 +151,10 @@ int main () {
     ASSERT(vector13.distance (p3) == 1);
     ASSERT(vector14.distance (p3) == 1);
 
-    ASSERT(std::abs(vector12.distance (p4) - std::sqrt(4 + 1)) < FLT_EPSILON);
-    ASSERT(std::abs(vector13.distance (p4) - std::sqrt(4 + 1)) < FLT_EPSILON);
-    ASSERT(std::abs(vector14.distance (p4) - std::sqrt(4 + 1)) < FLT_EPSILON);
-
-    ASSERT(std::abs(vector12.distance (p5) - std::sqrt(4 + 1)) < FLT_EPSILON);
+    ASSERT(floatCompare(vector12.distance (p4), std::sqrt(4 + 1)) == 0);
+    ASSERT(floatCompare(vector13.distance (p4), std::sqrt(4 + 1)) == 0);
+    ASSERT(floatCompare(vector14.distance (p4), std::sqrt(4 + 1)) == 0);
+    ASSERT(floatCompare(vector12.distance (p5), std::sqrt(4 + 1)) == 0);
 
     Point p6 (0, 1);
     Vector vector15 (Point(5, -2));
