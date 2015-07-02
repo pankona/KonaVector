@@ -7,7 +7,7 @@ PROJECT(KonaVector CXX)
 SET(serial "1.0.0")
 SET(soserial "1")
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}")
-ADD_LIBRARY(konavector STATIC KonaVector.cpp KonaVector2D.cpp)
+ADD_LIBRARY(konavector STATIC KonaVector.cpp KonaVector2D.cpp KonaRect.cpp)
 SET_TARGET_PROPERTIES(konavector PROPERTIES VERSION ${serial} SOVERSION ${soserial})
 
 ADD_EXECUTABLE(KonaVectorTest main.cpp)

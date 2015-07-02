@@ -1,6 +1,7 @@
 
 #include "KonaVector.h"
 #include "KonaVector2D.h"
+#include "KonaRect.h"
 
 #include <iostream>
 #include <cmath>
@@ -35,10 +36,30 @@ floatCompare (float a, float b) {
     }
 }
 
+static void
+TestForKonaRect() {
+    cout << endl;
+    cout << "@@@ Test for KonaRect @@@" << endl;
+
+    Rect rect(Vector2D(Vector(Point(0, 2)), Point(0, 0)), 
+              Vector2D(Vector(Point(0, 2)), Point(2, 0)));
+    ASSERT(rect.containsPoint(Point(1, 1)));
+    ASSERT(rect.containsPoint(Point(0, 1)));
+    ASSERT(rect.containsPoint(Point(1, 0)));
+    ASSERT(rect.containsPoint(Point(0, 0)));
+    ASSERT(rect.containsPoint(Point(2, 2)));
+    ASSERT(rect.containsPoint(Point(2, 0)));
+    ASSERT(rect.containsPoint(Point(0, 2)));
+    ASSERT(!rect.containsPoint(Point(3, 3)));
+    ASSERT(!rect.containsPoint(Point(-1, 0)));
+    ASSERT(!rect.containsPoint(Point(0, -1)));
+    ASSERT(!rect.containsPoint(Point(-1, -1)));
+}
+
 int main () {
     cout << "KonaVector test application!" << endl;
 
-    cout << "@@@ Test for konaVector @@@" << endl;
+    cout << "@@@ Test for KonaVector @@@" << endl;
     Point terminal1(1, 1);
     Vector vector1(terminal1);
     ASSERT(vector1.getAngle() == 45);
@@ -164,7 +185,7 @@ int main () {
     ASSERT(vector15.distance (p6) == 1);
 
     cout << endl;
-    cout << "@@@ Test for konaVector2D @@@" << endl;
+    cout << "@@@ Test for KonaVector2D @@@" << endl;
     Vector2D v2d1(Vector(Point(2, 2)), Point(0, 0));
     ASSERT(v2d1.isTowardRight());
     ASSERT(!v2d1.isTowardLeft());
@@ -203,6 +224,8 @@ int main () {
     ASSERT(v2d3.cross(p7) > 0);
     p7 = Point(1, 1);
     ASSERT(v2d3.cross(p7) == 0);
+
+    TestForKonaRect();
 
     if (failedCaseExists) {
         cout << "there's failed case!" << endl;

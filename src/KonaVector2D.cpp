@@ -6,6 +6,11 @@ using namespace Kona;
 using namespace std;
 
 
+Vector2D::Vector2D() {
+    this->vector = Vector(Point(0, 0));
+    this->position = Point(0, 0);
+}
+
 Vector2D::Vector2D(Vector in_v, Point in_startPoint) {
     this->vector = in_v;
     this->position = in_startPoint;
