@@ -14,6 +14,7 @@ private:
     Vector vector;
 
 public:
+    Vector2D();
     Vector2D(Vector, Point);
     Vector2D(Point, Point);
 
