@@ -10,6 +10,8 @@
 using namespace Kona;
 using namespace std;
 
+static bool failedCaseExists = false;
+
 #define ASSERT(x)                                \
         cout << "[" << __func__ << "]"           \
              << "[" << __LINE__ << "] ";         \
@@ -17,6 +19,7 @@ using namespace std;
             cout << "." << endl;                 \
         } else {                                 \
             cout << "Assertion failed!" << endl; \
+            failedCaseExists = true;             \
         }
 
 
@@ -201,7 +204,10 @@ int main () {
     p7 = Point(1, 1);
     ASSERT(v2d3.cross(p7) == 0);
 
-
-
+    if (failedCaseExists) {
+        cout << "there's failed case!" << endl;
+        return 1;
+    }
+    cout << "all assertion passed!" << endl;
     return 0;
 }
