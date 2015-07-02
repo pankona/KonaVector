@@ -31,6 +31,21 @@ Rect::containsPoint(Point in_p) {
     return false;
 }
 
+bool
+Rect::intersectsVector2D(Vector2D in_v2d, Point* out_intersectPoint) {
+
+    if (in_v2d.calcIntersectPoint(sides[LEFT], out_intersectPoint)) {
+        return true;
+    } else if (in_v2d.calcIntersectPoint(sides[RIGHT], out_intersectPoint)) {
+        return true;
+    } else if (in_v2d.calcIntersectPoint(sides[TOP], out_intersectPoint)) {
+        return true;
+    } else if (in_v2d.calcIntersectPoint(sides[BOTTOM], out_intersectPoint)) {
+        return true;
+    }
+    return false;
+}
+
 void
 Rect::show() {
     cout << "LEFT  : "; sides[LEFT].show();

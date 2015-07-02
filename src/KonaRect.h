@@ -20,6 +20,7 @@ class Rect {
         Rect();
         Rect(Vector2D left, Vector2D right);
         bool containsPoint(Point);
+        bool intersectsVector2D(Vector2D, Point* out_intersectPoint);
         void show();
 };
 

@@ -54,6 +54,38 @@ TestForKonaRect() {
     ASSERT(!rect.containsPoint(Point(-1, 0)));
     ASSERT(!rect.containsPoint(Point(0, -1)));
     ASSERT(!rect.containsPoint(Point(-1, -1)));
+
+    Point intersectPoint;
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(1, -1)), &intersectPoint));
+    ASSERT(intersectPoint.x == 1 && intersectPoint.y == 0);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(0, 0)), &intersectPoint));
+    ASSERT(intersectPoint.x == 0 && intersectPoint.y == 2);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(2, 0)), &intersectPoint));
+    ASSERT(intersectPoint.x == 2 && intersectPoint.y == 2);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(1, 1)), &intersectPoint));
+    ASSERT(intersectPoint.x == 1 && intersectPoint.y == 2);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-1, 1)), &intersectPoint));
+    ASSERT(intersectPoint.x == 0 && intersectPoint.y == 1);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(1, 1)), &intersectPoint));
+    ASSERT(intersectPoint.x == 2 && intersectPoint.y == 1);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(0, 2)), &intersectPoint));
+    ASSERT(intersectPoint.x == 0 && intersectPoint.y == 2);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(0, -2)), &intersectPoint));
+    ASSERT(intersectPoint.x == 0 && intersectPoint.y == 0);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(2, -2)), &intersectPoint));
+    ASSERT(intersectPoint.x == 2 && intersectPoint.y == 0);
+    ASSERT(rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(2, 2)), &intersectPoint));
+    ASSERT(intersectPoint.x == 2 && intersectPoint.y == 2);
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(-1, 0)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(0, -3)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(1, -3)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(2, -3)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(3, 0)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, 0)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, 1)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, 2)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, -1)), &intersectPoint));
+    ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, -2)), &intersectPoint));
 }
 
 int main () {
