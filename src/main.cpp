@@ -2,6 +2,7 @@
 #include "KonaVector.h"
 #include "KonaVector2D.h"
 #include "KonaRect.h"
+#include "KonaCircle.h"
 
 #include <iostream>
 #include <cmath>
@@ -86,6 +87,20 @@ TestForKonaRect() {
     ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, 2)), &intersectPoint));
     ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, -1)), &intersectPoint));
     ASSERT(!rect.intersectsVector2D(Vector2D(Vector(Point(2, 0)), Point(-3, -2)), &intersectPoint));
+}
+
+static void
+TestForKonaCircle() {
+    cout << endl;
+    cout << "@@@ Test for KonaCircle @@@" << endl;
+
+    Circle circle(Point(0, 0), 1);
+
+    Point p1, p2;
+    ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(2, -2)), &p1, &p2) == 0);
+    ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(1, -1)), &p1, &p2) == 1);
+    ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 4)), Point(0, -2)), &p1, &p2) == 2);
+
 }
 
 int main () {
@@ -258,6 +273,7 @@ int main () {
     ASSERT(v2d3.cross(p7) == 0);
 
     TestForKonaRect();
+    TestForKonaCircle();
 
     if (failedCaseExists) {
         cout << "there's failed case!" << endl;
