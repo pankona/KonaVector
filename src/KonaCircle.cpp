@@ -6,6 +6,13 @@
 
 using namespace Kona;
 
+// private functions
+Vector2D
+Circle::calcVector2DfromCenter(float in_length, float in_angle) {
+    return Vector2D(Vector(in_length, in_angle), center);
+}
+
+// public functions
 static int
 floatCompare (float a, float b) {
     if (a == b ||
@@ -35,10 +42,10 @@ Circle::operator=(Circle in_circle) {
    return *this;
 }
 
+
 int
 Circle::intersectsVector2D(Vector2D in_v2d,
-                           Point* out_p1,
-                           Point* out_p2) {
+                           Point* out_p1, Point* out_p2) {
     //if( v.length>r ){
     //    //距離が半径より大きい場合、交点なし
     //    return [];
@@ -64,22 +71,41 @@ Circle::intersectsVector2D(Vector2D in_v2d,
     //}
 
     float distance = in_v2d.distanceToPoint(this->center);
+    Vector2D vectorFromCenter;
 
     if (distance < this->radius) {
-        // there're two cross points
-        std::cout << in_v2d.cross(this->center) << std::endl;
+        // there's possibility two cross points exist.
+        std::cout << "there's possibility two cross points exist." << std::endl;
+        if(in_v2d.cross(this->center) > 0) {
+            std::cout << "center is on left of vector2d" << std::endl;
+            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() - 90);
+            vectorFromCenter.show();
+        } else if (in_v2d.cross(this->center) < 0) {
+            std::cout << "center is on right of vector2d" << std::endl;
+            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() + 90);
+            vectorFromCenter.show();
+        } else if (in_v2d.cross(this->center) < 0) {
+        } else {
+            std::cout << "center is on vector2d" << std::endl;
+        }
         return 2;
     }
 
     if (distance == this->radius) {
         // there's one cross point
+        std::cout << "there's one cross point." << std::endl;
         if(in_v2d.cross(this->center) > 0) {
             std::cout << "center is on left of vector2d" << std::endl;
+            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() - 90);
+            vectorFromCenter.show();
         } else if (in_v2d.cross(this->center) < 0) {
             std::cout << "center is on right of vector2d" << std::endl;
+            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() + 90);
+            vectorFromCenter.show();
         } else {
             std::cout << "center is on vector2d" << std::endl;
         }
+        return 1;
     }
 
     return 0;

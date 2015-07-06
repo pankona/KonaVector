@@ -11,6 +11,7 @@ class Circle {
     private:
         Point center;
         float radius;
+        Vector2D calcVector2DfromCenter(float in_length, float in_angle);
 
     public:
         Circle();
