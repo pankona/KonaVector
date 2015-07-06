@@ -100,7 +100,11 @@ TestForKonaCircle() {
     //ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(3, -3)), &p1, &p2) == 0);
     //ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(2, -1)), &p1, &p2) == 1);
     ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 4)), Point(1, -2)), &p1, &p2) == 2);
-
+    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 4)), Point(0, 0)), &p1, &p2) == 2);
+    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
 }
 
 int main () {

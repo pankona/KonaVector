@@ -74,20 +74,33 @@ Circle::intersectsVector2D(Vector2D in_v2d,
     Vector2D vectorFromCenter;
 
     if (distance < this->radius) {
+        float atan2;
+        float acos;
         // there's possibility two cross points exist.
         std::cout << "there's possibility two cross points exist." << std::endl;
         if(in_v2d.cross(this->center) > 0) {
             std::cout << "center is on left of vector2d" << std::endl;
             vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() - 90);
             vectorFromCenter.show();
+            atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y,
+                               vectorFromCenter.getTerminalPosition().x);
+            acos  = std::acos(vectorFromCenter.getLength() / radius);
         } else if (in_v2d.cross(this->center) < 0) {
             std::cout << "center is on right of vector2d" << std::endl;
             vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() + 90);
             vectorFromCenter.show();
-        } else if (in_v2d.cross(this->center) < 0) {
+            atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y,
+                               vectorFromCenter.getTerminalPosition().x);
+            acos  = std::acos(vectorFromCenter.getLength() / radius);
         } else {
+            atan2 = std::atan2(-1, in_v2d.getTerminalPosition().y / in_v2d.getTerminalPosition().x);
+            acos = M_PI / 2;
             std::cout << "center is on vector2d" << std::endl;
         }
+        *out_p1 = Point(center.x + radius * std::cos(atan2 + acos),
+                        center.y + radius * std::sin(atan2 + acos));
+        *out_p2 = Point(center.x + radius * std::cos(atan2 - acos),
+                        center.y + radius * std::sin(atan2 - acos));
         return 2;
     }
 
