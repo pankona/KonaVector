@@ -97,14 +97,43 @@ TestForKonaCircle() {
     Circle circle(Point(0, 0), 2);
 
     Point p1, p2;
-    //ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(3, -3)), &p1, &p2) == 0);
-    //ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 2)), Point(2, -1)), &p1, &p2) == 1);
-    ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 4)), Point(1, -2)), &p1, &p2) == 2);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(3, -3), Point(3, 3)), &p1, &p2) == 0);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(2, -1), Point(2, 1)), &p1, &p2) == 1);
+    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(1, -2), Point(1, 2)), &p1, &p2) == 2);
     cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
     cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
-    ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(0, 4)), Point(0, 0)), &p1, &p2) == 2);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(0, 0), Point(0, 4)), &p1, &p2) == 1);
+    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Vector(Point(4, 4)), Point(-1, -3)), &p1, &p2) == 2);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(0, 2), Point(2, 0)), &p1, &p2) == 2);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 0), Point(0, 2)), &p1, &p2) == 2);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 0), Point(0, -2)), &p1, &p2) == 2);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(2, -2), Point(2, 2)), &p1, &p2) == 1);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 2), Point(2, 2)), &p1, &p2) == 1);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, -2), Point(-2, 2)), &p1, &p2) == 1);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, -2), Point(2, -2)), &p1, &p2) == 1);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 0), Point(-3, 0)), &p1, &p2) == 1);
     cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
     cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(0, 3), Point(0, 2)), &p1, &p2) == 1);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(3, 0), Point(2, 0)), &p1, &p2) == 1);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    //ASSERT(circle.intersectsVector2D(Vector2D(Point(0, -3), Point(0, -2)), &p1, &p2) == 1);
+    //cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
 }
 
 int main () {

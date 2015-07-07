@@ -46,78 +46,57 @@ Circle::operator=(Circle in_circle) {
 int
 Circle::intersectsVector2D(Vector2D in_v2d,
                            Point* out_p1, Point* out_p2) {
-    //if( v.length>r ){
-    //    //距離が半径より大きい場合、交点なし
-    //    return [];
-    //}else if( v.length<r ){
-    //    //交点が２つ
-    //    var drad:Number;
-    //    var irad:Number;
-    //    if( dv.length>0 ){
-    //        //距離ベクトルの角度
-    //        drad = Math.atan2( v.y, v.x );
-    //        //距離ベクトルから交点の角度
-    //        irad = Math.acos( v.length/r );
-    //    }else{
-    //        drad = Math.atan2( b, a );
-    //        irad = Math.PI/2;
-    //    }
-    //    return [ new Point( x + r*Math.cos(drad+irad), y + r*Math.sin(drad+irad) ),
-    //           new Point( x + r*Math.cos(drad-irad), y + r*Math.sin(drad-irad) ) ];
-    //}else{
-    //    //接線
-    //    v.offset( x, y );
-    //    return [ v ];
-    //}
-
-    float distance = in_v2d.distanceToPoint(this->center);
-    Vector2D vectorFromCenter;
-
-    if (distance < this->radius) {
-        float atan2;
-        float acos;
-        // there's possibility two cross points exist.
-        std::cout << "there's possibility two cross points exist." << std::endl;
-        if(in_v2d.cross(this->center) > 0) {
-            std::cout << "center is on left of vector2d" << std::endl;
-            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() - 90);
-            vectorFromCenter.show();
-            atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y,
-                               vectorFromCenter.getTerminalPosition().x);
-            acos  = std::acos(vectorFromCenter.getLength() / radius);
-        } else if (in_v2d.cross(this->center) < 0) {
-            std::cout << "center is on right of vector2d" << std::endl;
-            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() + 90);
-            vectorFromCenter.show();
-            atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y,
-                               vectorFromCenter.getTerminalPosition().x);
-            acos  = std::acos(vectorFromCenter.getLength() / radius);
-        } else {
-            atan2 = std::atan2(-1, in_v2d.getTerminalPosition().y / in_v2d.getTerminalPosition().x);
-            acos = M_PI / 2;
-            std::cout << "center is on vector2d" << std::endl;
-        }
-        *out_p1 = Point(center.x + radius * std::cos(atan2 + acos),
-                        center.y + radius * std::sin(atan2 + acos));
-        *out_p2 = Point(center.x + radius * std::cos(atan2 - acos),
-                        center.y + radius * std::sin(atan2 - acos));
-        return 2;
+    float distance = in_v2d.cross(this->center) / in_v2d.getLength();
+    if (distance > this->radius) {
+        return 0;
     }
 
-    if (distance == this->radius) {
-        // there's one cross point
-        std::cout << "there's one cross point." << std::endl;
-        if(in_v2d.cross(this->center) > 0) {
-            std::cout << "center is on left of vector2d" << std::endl;
-            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() - 90);
-            vectorFromCenter.show();
-        } else if (in_v2d.cross(this->center) < 0) {
-            std::cout << "center is on right of vector2d" << std::endl;
-            vectorFromCenter = calcVector2DfromCenter(distance, in_v2d.getAngle() + 90);
-            vectorFromCenter.show();
-        } else {
-            std::cout << "center is on vector2d" << std::endl;
+    Vector2D vectorFromCenter;
+    float atan2, acos;
+    if(in_v2d.cross(this->center) > 0) {
+        std::cout << "center is on left of vector2d" << std::endl;
+        vectorFromCenter = calcVector2DfromCenter(in_v2d.cross(this->center) / in_v2d.getLength(), in_v2d.getAngle() - 90);
+        atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y, vectorFromCenter.getTerminalPosition().x);
+        acos  = std::acos(vectorFromCenter.getLength() / radius);
+    } else if (in_v2d.cross(this->center) < 0) {
+        std::cout << "center is on right of vector2d" << std::endl;
+        vectorFromCenter = calcVector2DfromCenter(in_v2d.cross(this->center) / in_v2d.getLength(), in_v2d.getAngle() + 90);
+        atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y, vectorFromCenter.getTerminalPosition().x);
+        acos  = std::acos(vectorFromCenter.getLength() / radius);
+    } else {
+        std::cout << "center is on vector2d" << std::endl;
+        if (in_v2d.getTerminalPosition().x == 0) {
+            std::cout << "zero div!" << std::endl;
         }
+        atan2 = std::atan2(-1, in_v2d.getTerminalPosition().y / in_v2d.getTerminalPosition().x);
+        acos  = M_PI / 2;
+    }
+    Point p1(center.x + radius * std::cos(atan2 + acos), center.y + radius * std::sin(atan2 + acos));
+    Point p2(center.x + radius * std::cos(atan2 - acos), center.y + radius * std::sin(atan2 - acos));
+
+    // substitute 0 if the value is almost 0
+    if (floatCompare(std::abs(p1.x), 0.00001) == 1) p1.x = 0;
+    if (floatCompare(std::abs(p1.y), 0.00001) == 1) p1.y = 0;
+    if (floatCompare(std::abs(p2.x), 0.00001) == 1) p2.x = 0;
+    if (floatCompare(std::abs(p2.y), 0.00001) == 1) p2.y = 0;
+
+    if (floatCompare (in_v2d.distanceToPoint(p1), 0) == 0 && 
+        floatCompare (in_v2d.distanceToPoint(p2), 0) == 0) {
+        if (p1 == p2) {
+            *out_p1 = p1;
+            return 1;
+        } else {
+            *out_p1 = p1;
+            *out_p2 = p2;
+            return 2;
+        }
+    } else if (floatCompare (in_v2d.distanceToPoint(p1), 0) != 0 && 
+               floatCompare (in_v2d.distanceToPoint(p2), 0) == 0) {
+        *out_p1 = p2;
+        return 1;
+    } else if (floatCompare (in_v2d.distanceToPoint(p1), 0) == 0 && 
+               floatCompare (in_v2d.distanceToPoint(p2), 0) != 0) {
+        *out_p1 = p1;
         return 1;
     }
 
