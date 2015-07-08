@@ -9,7 +9,7 @@ using namespace Kona;
 // private functions
 Vector2D
 Circle::calcVector2DfromCenter(float in_length, float in_angle) {
-    return Vector2D(Vector(in_length, in_angle), center);
+    return Vector2D(Vector(in_length, in_angle), this->center);
 }
 
 // public functions
@@ -54,20 +54,16 @@ Circle::intersectsVector2D(Vector2D in_v2d,
     Vector2D vectorFromCenter;
     float atan2, acos;
     if(in_v2d.cross(this->center) > 0) {
-        std::cout << "center is on left of vector2d" << std::endl;
-        vectorFromCenter = calcVector2DfromCenter(in_v2d.cross(this->center) / in_v2d.getLength(), in_v2d.getAngle() - 90);
+        vectorFromCenter = calcVector2DfromCenter(std::abs(in_v2d.cross(this->center) / in_v2d.getLength()),
+                                                  in_v2d.getAngle() - 90);
         atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y, vectorFromCenter.getTerminalPosition().x);
         acos  = std::acos(vectorFromCenter.getLength() / radius);
     } else if (in_v2d.cross(this->center) < 0) {
-        std::cout << "center is on right of vector2d" << std::endl;
-        vectorFromCenter = calcVector2DfromCenter(in_v2d.cross(this->center) / in_v2d.getLength(), in_v2d.getAngle() + 90);
+        vectorFromCenter = calcVector2DfromCenter(std::abs(in_v2d.cross(this->center) / in_v2d.getLength()),
+                                                  in_v2d.getAngle() + 90);
         atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y, vectorFromCenter.getTerminalPosition().x);
         acos  = std::acos(vectorFromCenter.getLength() / radius);
     } else {
-        std::cout << "center is on vector2d" << std::endl;
-        if (in_v2d.getTerminalPosition().x == 0) {
-            std::cout << "zero div!" << std::endl;
-        }
         atan2 = std::atan2(-1, in_v2d.getTerminalPosition().y / in_v2d.getTerminalPosition().x);
         acos  = M_PI / 2;
     }
@@ -80,8 +76,8 @@ Circle::intersectsVector2D(Vector2D in_v2d,
     if (floatCompare(std::abs(p2.x), 0.00001) == 1) p2.x = 0;
     if (floatCompare(std::abs(p2.y), 0.00001) == 1) p2.y = 0;
 
-    if (floatCompare (in_v2d.distanceToPoint(p1), 0) == 0 && 
-        floatCompare (in_v2d.distanceToPoint(p2), 0) == 0) {
+    if (floatCompare(in_v2d.distanceToPoint(p1), 0) == 0 && 
+        floatCompare(in_v2d.distanceToPoint(p2), 0) == 0) {
         if (p1 == p2) {
             *out_p1 = p1;
             return 1;
@@ -90,12 +86,12 @@ Circle::intersectsVector2D(Vector2D in_v2d,
             *out_p2 = p2;
             return 2;
         }
-    } else if (floatCompare (in_v2d.distanceToPoint(p1), 0) != 0 && 
-               floatCompare (in_v2d.distanceToPoint(p2), 0) == 0) {
+    } else if (floatCompare(in_v2d.distanceToPoint(p1), 0) != 0 && 
+               floatCompare(in_v2d.distanceToPoint(p2), 0) == 0) {
         *out_p1 = p2;
         return 1;
-    } else if (floatCompare (in_v2d.distanceToPoint(p1), 0) == 0 && 
-               floatCompare (in_v2d.distanceToPoint(p2), 0) != 0) {
+    } else if (floatCompare(in_v2d.distanceToPoint(p1), 0) == 0 && 
+               floatCompare(in_v2d.distanceToPoint(p2), 0) != 0) {
         *out_p1 = p1;
         return 1;
     }
