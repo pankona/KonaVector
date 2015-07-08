@@ -6,6 +6,10 @@
 
 using namespace Kona;
 
+#define ALMOST_ZERO (0.00001)
+#define IS_ALMOST_ZERO(x) \
+    (floatCompare(std::abs(x), ALMOST_ZERO) == 1)
+
 // private functions
 Vector2D
 Circle::calcVector2DfromCenter(float in_length, float in_angle) {
@@ -53,32 +57,46 @@ Circle::intersectsVector2D(Vector2D in_v2d,
 
     Vector2D vectorFromCenter;
     float atan2, acos;
+    Point p1, p2;
     if(in_v2d.cross(this->center) > 0) {
         vectorFromCenter = calcVector2DfromCenter(std::abs(in_v2d.cross(this->center) / in_v2d.getLength()),
                                                   in_v2d.getAngle() - 90);
-        atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y, vectorFromCenter.getTerminalPosition().x);
+        atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y - center.y,
+                           vectorFromCenter.getTerminalPosition().x - center.x);
         acos  = std::acos(vectorFromCenter.getLength() / radius);
+        p1 = Point(center.x + radius * std::cos(atan2 + acos), center.y + radius * std::sin(atan2 + acos));
+        p2 = Point(center.x + radius * std::cos(atan2 - acos), center.y + radius * std::sin(atan2 - acos));
     } else if (in_v2d.cross(this->center) < 0) {
         vectorFromCenter = calcVector2DfromCenter(std::abs(in_v2d.cross(this->center) / in_v2d.getLength()),
                                                   in_v2d.getAngle() + 90);
-        atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y, vectorFromCenter.getTerminalPosition().x);
+        atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y - center.y,
+                           vectorFromCenter.getTerminalPosition().x - center.x);
         acos  = std::acos(vectorFromCenter.getLength() / radius);
+        p1 = Point(center.x + radius * std::cos(atan2 + acos), center.y + radius * std::sin(atan2 + acos));
+        p2 = Point(center.x + radius * std::cos(atan2 - acos), center.y + radius * std::sin(atan2 - acos));
     } else {
-        // Ax+By+C=0 ... A=y2-y1, B=x1-x2 C=y1*x1 - x1*y2
-        atan2 = std::atan2(-1 * in_v2d.getTerminalPosition().x, in_v2d.getTerminalPosition().y);
-        acos  = M_PI / 2;
+        vectorFromCenter = Vector2D(Vector(radius, in_v2d.getAngle()), center);
+        p1 = vectorFromCenter.getTerminalPosition();
+
+        vectorFromCenter.setAngle(vectorFromCenter.getAngle() + 180);
+        p2 = vectorFromCenter.getTerminalPosition();
     }
-    Point p1(center.x + radius * std::cos(atan2 + acos), center.y + radius * std::sin(atan2 + acos));
-    Point p2(center.x + radius * std::cos(atan2 - acos), center.y + radius * std::sin(atan2 - acos));
 
     // substitute 0 if the value is almost 0
-    if (floatCompare(std::abs(p1.x), 0.00001) == 1) p1.x = 0;
-    if (floatCompare(std::abs(p1.y), 0.00001) == 1) p1.y = 0;
-    if (floatCompare(std::abs(p2.x), 0.00001) == 1) p2.x = 0;
-    if (floatCompare(std::abs(p2.y), 0.00001) == 1) p2.y = 0;
+    if (IS_ALMOST_ZERO(p1.x)) p1.x = 0;
+    if (IS_ALMOST_ZERO(p1.y)) p1.y = 0;
+    if (IS_ALMOST_ZERO(p2.x)) p2.x = 0;
+    if (IS_ALMOST_ZERO(p2.y)) p2.y = 0;
 
-    if (floatCompare(in_v2d.distanceToPoint(p1), 0) == 0 && 
-        floatCompare(in_v2d.distanceToPoint(p2), 0) == 0) {
+#if 0
+    std::cout << "p1 = (" << p1.x << ", " << p1.y << ")"<< std::endl;
+    std::cout << "p2 = (" << p2.x << ", " << p2.y << ")"<< std::endl;
+    std::cout << "distance to p1 = " << in_v2d.distanceToPoint(p1) << std::endl;
+    std::cout << "distance to p2 = " << in_v2d.distanceToPoint(p2) << std::endl;
+#endif
+
+    if (IS_ALMOST_ZERO(in_v2d.distanceToPoint(p1)) && 
+        IS_ALMOST_ZERO(in_v2d.distanceToPoint(p2))) {
         if (p1 == p2) {
             *out_p1 = p1;
             return 1;
@@ -87,12 +105,12 @@ Circle::intersectsVector2D(Vector2D in_v2d,
             *out_p2 = p2;
             return 2;
         }
-    } else if (floatCompare(in_v2d.distanceToPoint(p1), 0) != 0 && 
-               floatCompare(in_v2d.distanceToPoint(p2), 0) == 0) {
+    } else if (!IS_ALMOST_ZERO(in_v2d.distanceToPoint(p1)) && 
+               IS_ALMOST_ZERO(in_v2d.distanceToPoint(p2))) {
         *out_p1 = p2;
         return 1;
-    } else if (floatCompare(in_v2d.distanceToPoint(p1), 0) == 0 && 
-               floatCompare(in_v2d.distanceToPoint(p2), 0) != 0) {
+    } else if (IS_ALMOST_ZERO(in_v2d.distanceToPoint(p1)) && 
+               !IS_ALMOST_ZERO(in_v2d.distanceToPoint(p2))) {
         *out_p1 = p1;
         return 1;
     }

@@ -24,7 +24,6 @@ static bool failedCaseExists = false;
             failedCaseExists = true;             \
         }
 
-
 static int
 floatCompare (float a, float b) {
     if (a == b ||
@@ -98,8 +97,9 @@ TestForKonaCircle() {
 
     Point p1, p2;
     ASSERT(circle.intersectsVector2D(Vector2D(Point(3, -3), Point(3, 3)), &p1, &p2) == 0);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(0, -1), Point(0, 1)), &p1, &p2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(2, -1), Point(2, 1)), &p1, &p2) == 1);
-    ASSERT(p1.x == 2 && p1.y == 0);
+    ASSERT(floatCompare(p1.x, 2) == 0 && floatCompare(p1.y, 0)  == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(1, -2), Point(1, 2)), &p1, &p2) == 2);
     ASSERT(floatCompare(p1.x, 1) == 0 && floatCompare(p1.y, std::sqrt(3)) == 0);
     ASSERT(floatCompare(p2.x, 1) == 0 && floatCompare(p2.y, -1 * std::sqrt(3)) == 0);
@@ -133,6 +133,17 @@ TestForKonaCircle() {
     ASSERT(floatCompare(p1.x, 2) == 0 && floatCompare(p1.y, 0) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(0, -3), Point(0, -2)), &p1, &p2) == 1);
     ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, -2) == 0);
+
+    circle = Circle(Point(2, 0), 2);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(-1, -1), Point(-1, 1)), &p1, &p2) == 0);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(0, -1), Point(0, 1)), &p1, &p2) == 1);
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 0) == 0);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(0, 0), Point(2, 2)), &p1, &p2) == 2);
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 0) == 0);
+    ASSERT(floatCompare(p2.x, 2) == 0 && floatCompare(p2.y, 2) == 0);
+    ASSERT(circle.intersectsVector2D(Vector2D(Point(2, 2), Point(0, 0)), &p1, &p2) == 2);
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 0) == 0);
+    ASSERT(floatCompare(p2.x, 2) == 0 && floatCompare(p2.y, 2) == 0);
 }
 
 int main () {
