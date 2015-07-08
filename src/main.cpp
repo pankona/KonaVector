@@ -24,10 +24,11 @@ static bool failedCaseExists = false;
             failedCaseExists = true;             \
         }
 
+#define ALMOST_ZERO (0.000001)
 static int
 floatCompare (float a, float b) {
     if (a == b ||
-        std::abs(a - b) < std::max(a , b) * FLT_EPSILON) {
+        std::abs(a - b) < ALMOST_ZERO) {
        return 0;
     } else if (a > b) {
        return -1;

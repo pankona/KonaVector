@@ -6,7 +6,7 @@
 
 using namespace Kona;
 
-#define ALMOST_ZERO (0.00001)
+#define ALMOST_ZERO (0.000001)
 #define IS_ALMOST_ZERO(x) \
     (floatCompare(std::abs(x), ALMOST_ZERO) == 1)
 
