@@ -64,7 +64,8 @@ Circle::intersectsVector2D(Vector2D in_v2d,
         atan2 = std::atan2(vectorFromCenter.getTerminalPosition().y, vectorFromCenter.getTerminalPosition().x);
         acos  = std::acos(vectorFromCenter.getLength() / radius);
     } else {
-        atan2 = std::atan2(-1, in_v2d.getTerminalPosition().y / in_v2d.getTerminalPosition().x);
+        // Ax+By+C=0 ... A=y2-y1, B=x1-x2 C=y1*x1 - x1*y2
+        atan2 = std::atan2(-1 * in_v2d.getTerminalPosition().x, in_v2d.getTerminalPosition().y);
         acos  = M_PI / 2;
     }
     Point p1(center.x + radius * std::cos(atan2 + acos), center.y + radius * std::sin(atan2 + acos));
