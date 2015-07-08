@@ -128,7 +128,12 @@ Vector::distance (Point& in_p) {
 
     Vector new_vector(in_p);
     float cross_prod = cross (new_vector);
-    return std::abs(cross_prod) / this->getLength();
+    float distance = std::abs(cross_prod) / this->getLength();
+    if (floatCompare (distance, 0.000001) == 1) { // return 0 since this is almost 0
+        return 0;
+    } else  {
+        return std::abs(cross_prod) / this->getLength();
+    }
 }
 
 float
