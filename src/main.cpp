@@ -15,11 +15,11 @@ using namespace std;
 static bool failedCaseExists = false;
 
 #define ASSERT(x)                                \
+        if ((x)) {                               \
+            cout << ".";                         \
+        } else {                                 \
         cout << "[" << __func__ << "]"           \
              << "[" << __LINE__ << "] ";         \
-        if ((x)) {                               \
-            cout << "." << endl;                 \
-        } else {                                 \
             cout << "Assertion failed!" << endl; \
             failedCaseExists = true;             \
         }
@@ -99,41 +99,40 @@ TestForKonaCircle() {
     Point p1, p2;
     ASSERT(circle.intersectsVector2D(Vector2D(Point(3, -3), Point(3, 3)), &p1, &p2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(2, -1), Point(2, 1)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(p1.x == 2 && p1.y == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(1, -2), Point(1, 2)), &p1, &p2) == 2);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
-    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 1) == 0 && floatCompare(p1.y, std::sqrt(3)) == 0);
+    ASSERT(floatCompare(p2.x, 1) == 0 && floatCompare(p2.y, -1 * std::sqrt(3)) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(0, 0), Point(0, 4)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(-1, -3), Point(3, 1)), &p1, &p2) == 2);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
-    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 2) == 0 && floatCompare(p1.y, 0) == 0);
+    ASSERT(floatCompare(p2.x, 0) == 0 && floatCompare(p2.y, -2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(0, 2), Point(2, 0)), &p1, &p2) == 2);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
-    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 2) == 0);
+    ASSERT(floatCompare(p2.x, 2) == 0 && floatCompare(p2.y, 0) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 0), Point(0, 2)), &p1, &p2) == 2);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
-    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, -2) == 0 && floatCompare(p1.y, 0) == 0);
+    ASSERT(floatCompare(p2.x, 0) == 0 && floatCompare(p2.y, 2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 0), Point(0, -2)), &p1, &p2) == 2);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
-    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, -2) == 0);
+    ASSERT(floatCompare(p2.x, -2) == 0 && floatCompare(p2.y, 0) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(2, -2), Point(2, 2)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 2) == 0 && floatCompare(p1.y, 0) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 2), Point(2, 2)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, -2), Point(-2, 2)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, -2) == 0 && floatCompare(p1.y, 0) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, -2), Point(2, -2)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, -2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(-2, 0), Point(-3, 0)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
-    cout << "p2(x, y) = (" << p2.x << ", " << p2.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, -2) == 0 && floatCompare(p1.y, 0) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(0, 3), Point(0, 2)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 2) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(3, 0), Point(2, 0)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 2) == 0 && floatCompare(p1.y, 0) == 0);
     ASSERT(circle.intersectsVector2D(Vector2D(Point(0, -3), Point(0, -2)), &p1, &p2) == 1);
-    cout << "p1(x, y) = (" << p1.x << ", " << p1.y << ")" << endl;
+    ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, -2) == 0);
 }
 
 int main () {
@@ -308,6 +307,7 @@ int main () {
     TestForKonaRect();
     TestForKonaCircle();
 
+    cout << endl;
     if (failedCaseExists) {
         cout << "there's failed case!" << endl;
         return 1;
