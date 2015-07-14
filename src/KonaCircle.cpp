@@ -119,6 +119,12 @@ Circle::intersectsVector2D(Vector2D in_v2d,
 
     return 0;
 }
+
+Point
+Circle::getPosition() {
+    return center;
+}
+
 void
 Circle::show() {
 }

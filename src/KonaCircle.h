@@ -18,6 +18,7 @@ class Circle {
         Circle(Point, float);
         Circle& operator=(Circle);
         int intersectsVector2D(Vector2D, Point* out_p1, Point* out_p2);
+        Point getPosition();
         void show();
 };
 
