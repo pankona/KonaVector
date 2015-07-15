@@ -24,7 +24,8 @@ static bool failedCaseExists = false;
             failedCaseExists = true;             \
         }
 
-#define ALMOST_ZERO (0.000001)
+#define ALMOST_ZERO (0.0001)
+
 static int
 floatCompare (float a, float b) {
     if (a == b ||
@@ -145,6 +146,18 @@ TestForKonaCircle() {
     ASSERT(circle.intersectsVector2D(Vector2D(Point(2, 2), Point(0, 0)), &p1, &p2) == 2);
     ASSERT(floatCompare(p1.x, 0) == 0 && floatCompare(p1.y, 0) == 0);
     ASSERT(floatCompare(p2.x, 2) == 0 && floatCompare(p2.y, 2) == 0);
+
+    /*
+     * (210.848, 423.848), (217.919, 430.919)
+     * (203.777, 416.777), (210.848, 423.848)
+     * (196.706, 409.706), (203.777, 416.777)
+     * r = 12, center = (215, 425)
+     * distanceToPoint = 2.12141
+     */
+    circle = Circle(Point(215, 425), 12);
+    Point s(203.777, 416.777);
+    Point e(210.848, 423.848);
+    ASSERT(circle.intersectsVector2D(Vector2D(s, e), &p1, &p2) == 1);
 }
 
 int main () {

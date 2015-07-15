@@ -4,9 +4,10 @@
 #include <cmath>
 #include <float.h>
 
+using namespace std;
 using namespace Kona;
 
-#define ALMOST_ZERO (0.000001)
+#define ALMOST_ZERO (0.0001)
 #define IS_ALMOST_ZERO(x) \
     (floatCompare(std::abs(x), ALMOST_ZERO) == 1)
 
@@ -50,7 +51,8 @@ Circle::operator=(Circle in_circle) {
 int
 Circle::intersectsVector2D(Vector2D in_v2d,
                            Point* out_p1, Point* out_p2) {
-    float distance = in_v2d.cross(this->center) / in_v2d.getLength();
+    float distance = std::abs(in_v2d.cross(this->center) / in_v2d.getLength());
+
     if (distance > this->radius) {
         return 0;
     }
