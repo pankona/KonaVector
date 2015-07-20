@@ -36,6 +36,7 @@ public:
 
     bool calcIntersectPoint(Vector2D, Point*);
     float distanceToPoint(Point);
+    Vector2D getStrechedVector(int in_stretchLength);
 
     bool isTowardRight();
     bool isTowardLeft();

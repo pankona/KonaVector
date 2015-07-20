@@ -144,6 +144,17 @@ Vector2D::cross(Point in_p) {
     return vector.cross(v);
 }
 
+Vector2D
+Vector2D::getStrechedVector(int in_stretchLength) {
+
+    Kona::Vector2D startPosition(Kona::Vector(in_stretchLength, this->getAngle() + 180),
+                                 this->getStartPosition());
+    Kona::Vector2D terminalPosition(Kona::Vector(in_stretchLength, this->getAngle()),
+                                    this->getTerminalPosition());
+    return Kona::Vector2D(startPosition.getTerminalPosition(),
+                          terminalPosition.getTerminalPosition());
+}
+
 void
 Vector2D::show() {
     Point start, end;
